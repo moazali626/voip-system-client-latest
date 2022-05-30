@@ -1,0 +1,28 @@
+footer {
+  background-color: #1c2235;
+  color: white;
+  height: 8vh;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  text-align: center;
+  font-size: 1rem;
+
+  li {
+    display: inline-block;
+    margin: 0rem 0.6rem;
+    &:hover {
+      color: red;
+    }
+  }
+  p {
+    display: inline;
+  }
+}
+.footer-links {
+  text-decoration: none;
+  &:hover {
+    color: rgba(255, 72, 0, 0.877);
+    transition: 0.2s ease-out;
+  }
+}

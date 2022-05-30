@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-size: 18px;
+  font-family: sans-serif;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 12%;
+  background-color: #1c2236;
+  color: white;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  right: 0;
+  height: 10vh;
+}
+
+.nav-links {
+  margin-bottom: 0;
+
+  li {
+    list-style: none;
+    display: inline-block;
+    border-bottom: 3px solid transparent;
+    // padding: 0.4rem 1rem;
+    margin: 0.4rem 1rem;
+    padding-top: 1.2rem;
+    padding-bottom: 1.5rem;
+
+    &:hover {
+      border-bottom: 3px solid red;
+      padding-bottom: 1.5rem;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+  }
+}
+a {
+  color: #fff;
+}
+.login,
+.signup,
+.dashboard {
+  background: none;
+  color: white;
+  border: 1px solid white;
+  padding: 0.6rem 1.2rem;
+  margin: 0rem 0.4rem;
+  border-radius: 5px;
+  &:hover {
+    cursor: pointer;
+    background: white;
+    color: black;
+    border: 1px solid white;
+    transition: 0.2s ease-in;
+  }
+}
+.logo {
+  margin-right: 2rem;
+  color: white;
+  max-width: 2rem;
+}
+#signup-btn {
+  margin-left: 1rem;
+}
+
+#top {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+// nav {
+//   display: none;
+// }
+
+@media (max-width: 1039px) {
+  nav {
+    // flex-direction: column;
+    padding: 1rem 25%;
+    display: none;
+    //Remove display none to show header
+  }
+  .logo {
+    margin-bottom: 1rem;
+    margin-right: 0rem;
+  }
+  .nav-links {
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+  #signup-btn {
+    margin-left: 1.2rem;
+  }
+  li {
+    margin-bottom: 1rem;
+  }
+  // .nav-links,
+  // .login-signup-btn,
+  // .logo-div {
+  //   display: none;
+  // }
+}
+// @media (min-width: 1030px) {
+//   header {
+//     nav {
+//       display: none;
+//     }
+//   }
+// }
+
+.hamburger {
+  background-color: #1c2235;
+  position: absolute;
+  left: 85%;
+  top: 2%;
+}
+
+@media (min-width: 1040px) {
+  .hamburger {
+    display: none;
+  }
+}

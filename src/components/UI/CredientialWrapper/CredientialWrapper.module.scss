@@ -1,0 +1,44 @@
+.wrapper-component {
+  background: #018dd4;
+  background: -webkit-radial-gradient(center, #018dd4, #0a014a);
+  background: -moz-radial-gradient(center, #018dd4, #0a014a);
+  background: radial-gradient(ellipse at center, #018dd4, #0a014a);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+}
+
+.wrapper-box {
+  text-align: center;
+  vertical-align: baseline;
+  width: 70vw;
+  height: 70vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.image-banner {
+  background: url("../../../images/login-banner.png") center center;
+  background-size: cover;
+  border-radius: 40px 0px 0px 40px;
+}
+
+.wrapper-information {
+  background-color: #ffffff;
+  border-radius: 0px 40px 40px 0px;
+}
+
+@media (max-width: 960px) {
+  .wrapper-box {
+    grid-template-columns: 1fr;
+  }
+  .image-banner {
+    display: none;
+  }
+  .wrapper-information {
+    border-radius: 40px 40px 40px 40px;
+  }
+}

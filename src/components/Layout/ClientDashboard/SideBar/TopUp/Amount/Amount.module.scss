@@ -1,0 +1,32 @@
+.container {
+  position: absolute;
+  left: 60%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  // background-color: aqua;
+  height: 300px;
+  width: 700px;
+}
+.payment-amount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 300px;
+  p {
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+  }
+}
+.amount-btn {
+  margin: 0rem 0.5rem !important;
+  padding: 0.4rem 1.2rem !important;
+  font-size: 1.2rem !important;
+}
+.custom-amount-btn {
+  width: 145px !important;
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+  color: #3f50b5 !important;
+}

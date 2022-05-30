@@ -1,0 +1,48 @@
+// * {
+//   background-color: aqua;
+// }
+.container {
+  background-color: #eeeff1;
+  height: 100vh;
+}
+.sidebar {
+  display: inline-flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #fff;
+  width: 21vw;
+  height: 100vh;
+  img {
+    width: 100%;
+    max-width: 200px;
+  }
+  hr {
+    width: 18vw;
+  }
+  border-radius: 0px 0px 0px 0px;
+}
+.logo {
+  margin: 0.4rem 0rem;
+}
+.profile-information {
+  img {
+    width: 100%;
+    max-width: 130px;
+    border-radius: 50%;
+    margin-top: 1.2rem;
+  }
+  h3,
+  p {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+  h3 {
+    margin: 0.4rem 0rem;
+  }
+}
+.phone {
+  position: absolute;
+  left: 23%;
+  bottom: 93%;
+}

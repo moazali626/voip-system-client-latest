@@ -1,0 +1,21 @@
+.container {
+  position: absolute;
+  top: 50%;
+  left: 55.5%;
+  transform: translate(-50%, -60%);
+  width: 100%;
+}
+.wrapper {
+  text-align: center;
+  h1 {
+    margin-bottom: 1rem;
+    color: green;
+    font-size: 3rem;
+  }
+  img {
+    margin-bottom: 1.5rem;
+  }
+  p {
+    margin-bottom: 1.5rem;
+  }
+}

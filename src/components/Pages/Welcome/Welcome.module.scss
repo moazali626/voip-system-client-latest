@@ -1,0 +1,50 @@
+.container {
+  background: #018dd4;
+  background: -webkit-radial-gradient(center, #018dd4, #0a014a);
+  background: -moz-radial-gradient(center, #018dd4, #0a014a);
+  background: radial-gradient(ellipse at center, #018dd4, #0a014a);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //   line-height: 1;
+}
+
+.wrapper {
+  background-color: #fff;
+  width: 70vw;
+  height: 70vh;
+  text-align: center;
+  border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.6;
+}
+
+.content {
+  text-align: center;
+  h1 {
+    font-size: 22px;
+  }
+  Button {
+    margin-top: 1.5rem;
+    padding: 0.7rem 1.4rem;
+  }
+}
+
+@media (max-width: 570px) {
+  img {
+    max-width: 280px !important;
+  }
+}
+
+@media (max-width: 410px) {
+  img {
+    // max-width: 240px !important;
+    width: 100%;
+  }
+  body {
+    font-size: 100%;
+  }
+}

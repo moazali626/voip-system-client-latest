@@ -1,0 +1,32 @@
+.sign-up-page-heading {
+  font-size: 25px;
+  margin-bottom: 1rem;
+}
+
+.sign-up-page-btn {
+  height: 40px;
+  width: 125px;
+}
+
+.text-fields-wrapper {
+  margin-top: 3.5rem;
+}
+
+.error {
+  font-size: 13px;
+  color: red;
+  text-align: center;
+  margin-bottom: 0.4rem;
+}
+
+@media (max-width: 960px) {
+  .signup-box {
+    grid-template-columns: 1fr;
+  }
+  .image-banner {
+    display: none;
+  }
+  .signup-information {
+    border-radius: 40px 40px 40px 40px;
+  }
+}
