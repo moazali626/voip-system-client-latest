@@ -31,7 +31,40 @@ const ReceiveCall = () => {
     });
     socket.on("twilioToken", (data) => {
       console.log("Received Token from the backend");
+      console.log(data.token);
       setTwilioToken(data.token);
+    });
+    socket.on("enqueue", (data) => {
+      let result = data;
+      console.log("enqueue socket data", result.data);
+      const CallSid = result.data.CallSid;
+      const CallStatus = "enqueue";
+      const Called = result.data.Called;
+      const Caller = result.data.Caller;
+      const From = result.data.From;
+      const To = result.data.To;
+
+      let updatedData = {
+        CallSid: CallSid,
+        CallStatus: CallStatus,
+        Called: Called,
+        Caller: Caller,
+        From: From,
+        To: To,
+      };
+
+      setCall(updatedData);
+      // setCall((data) => {
+      //   const index = data.findIndex(({ callSid }) => callSid === data.callSid);
+      //   data[index].data.CallStatus = "enqueue";
+      // });
+      // setCall((data) => {
+      //   // 3
+      //   // const index = data.findIndex(({ callSid }) => callSid === data.callSid);
+      //   console.log(data.data.CallStatus);
+      //   data.data.CallStatus = "enqueue";
+      //   console.log(data.data.CallStatus);
+      // });
     });
     return () => {};
   }, []);
@@ -46,6 +79,11 @@ const ReceiveCall = () => {
       connection.accept();
     });
   }
+
+  const answerCall = (sid) => {
+    socket.emit("answer-call", { sid });
+  };
+
   return (
     <div>
       <div className={ReceiveCallCSS.container}>
@@ -66,8 +104,10 @@ const ReceiveCall = () => {
                 icon="cogs"
                 title="In queue"
                 description="User waiting in queue"
-                active
+                active={call.CallStatus === "enqueue"}
+                disabled={call.CallStatus === "ringing"}
                 style={{ display: "inline" }}
+                onClick={() => answerCall(call.CallSid)}
               />
               <Step
                 icon="headphones"
