@@ -43,6 +43,7 @@ import inbox from "./components/Layout/ClientDashboard/SideBar/inbox/inbox";
 import Dummy from "./components/Pages/Dummy/Dummy";
 import ConvertToMP3 from "./components/Modules/ConvertToMP3/ConvertToMP3";
 import ReceiveCall from "./components/Modules/ReceiveCall/ReceiveCall";
+import Dialer from "./components/Modules/MakeCall/public/dialer.jsx";
 
 //admin dashboard imports
 
@@ -102,7 +103,7 @@ const App = () => {
               component={OutgoingSMSHistory}
             />
             <Route path="/receive-a-call" exact component={ReceiveCall} />
-
+            <Route path="/make-call" exact component={Dialer} />
             <Route path="/convert-to-mp3" component={ConvertToMP3} />
             <Route path="/broadcast" component={Broadcast} />
             <Route path="/unauthorized" component={Unauthorized} />
