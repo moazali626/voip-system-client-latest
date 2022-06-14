@@ -7,13 +7,13 @@ let result;
 
 const userId = localStorage.getItem("id");
 
-const isBalanceAttribute = localStorage.getItem("balance");
+const isBalanceAttribute = localStorage.getItem("name");
 
 const SuspendUser = () => {
   const [allUsers, setAllUsers] = useState([]);
 
   useEffect(() => {
-    if (isBalanceAttribute) {
+    if (isBalanceAttribute != "Admin") {
       localStorage.removeItem("jwt");
       localStorage.removeItem("id");
       localStorage.removeItem("email");

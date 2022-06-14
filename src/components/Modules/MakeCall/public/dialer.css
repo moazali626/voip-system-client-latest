@@ -72,7 +72,7 @@ label:focus,
   color: #787878;
 }
 
-p {
+.dialer-text {
   font-size: 10px;
   color: #787878;
   font-style: italic;
@@ -91,5 +91,9 @@ p {
   /* background-color: aqua; */
   position: absolute;
   left: 50%;
-  bottom: 40%;
+  bottom: 33%;
 }
+
+/* .local-bootstrap {
+  @import "bootstrap/dist/css/bootstrap.min.css";
+} */

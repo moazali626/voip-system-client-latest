@@ -1,20 +1,35 @@
 import React from "react";
-import ReactDOM from "react-dom";
 var createReactClass = require("create-react-class");
 import "./dialer.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import CallIcon from "@mui/icons-material/Call";
 
 var NumberInputText = createReactClass({
   render: function () {
     return (
-      <div className="input-group input-group-sm">
-        <input
-          type="tel"
-          className="form-control"
-          placeholder="555-666-7777"
-          value={this.props.currentNumber}
-          onChange={this.props.handleOnChange}
-        />
-      </div>
+      <>
+        <div>
+          <h4
+            style={{
+              fontWeight: "bold",
+              marginLeft: "1.5rem",
+              marginBottom: "1.5rem",
+            }}
+          >
+            Make Live Call
+          </h4>
+        </div>
+        <div className="input-group input-group-sm">
+          <input
+            type="tel"
+            className="form-control"
+            placeholder="Recipient Phone Number"
+            value={this.props.currentNumber}
+            onChange={this.props.handleOnChange}
+            style={{ marginBottom: "0.5rem" }}
+          />
+        </div>
+      </>
     );
   },
 });
@@ -62,7 +77,7 @@ var LogBox = createReactClass({
     return (
       <div>
         <div className="log">{this.props.text}</div>
-        <p>{this.props.smallText}</p>
+        <p className="dialer-text">{this.props.smallText}</p>
       </div>
     );
   },
@@ -71,21 +86,26 @@ var LogBox = createReactClass({
 var CallButton = createReactClass({
   render: function () {
     return (
-      <button
-        className={
-          "btn btn-circle btn-success " +
-          (this.props.onPhone ? "btn-danger" : "btn-success")
-        }
-        onClick={this.props.handleOnClick}
-        disabled={this.props.disabled}
-      >
-        <i
+      <div>
+        <button
+          style={{ paddingRight: "2.4rem", borderRadius: "80%" }}
           className={
-            "fa fa-fw fa-phone " +
-            (this.props.onPhone ? "fa-close" : "fa-phone")
+            "btn btn-circle btn-success " +
+            (this.props.onPhone ? "btn-danger" : "btn-success")
           }
-        ></i>
-      </button>
+          onClick={this.props.handleOnClick}
+          disabled={this.props.disabled}
+        >
+          <i
+            className={
+              "fa fa-fw fa-phone " +
+              (this.props.onPhone ? "fa-close" : "fa-phone")
+            }
+          ></i>
+          {/* Dial */}
+          <CallIcon />
+        </button>
+      </div>
     );
   },
 });
@@ -93,17 +113,19 @@ var CallButton = createReactClass({
 var MuteButton = createReactClass({
   render: function () {
     return (
-      <button
-        className="btn btn-circle btn-default"
-        onClick={this.props.handleOnClick}
-      >
-        <i
-          className={
-            "fa fa-fw fa-microphone " +
-            (this.props.muted ? "fa-microphone-slash" : "fa-microphone")
-          }
-        ></i>
-      </button>
+      <div>
+        <button
+          className="btn btn-circle btn-default"
+          onClick={this.props.handleOnClick}
+        >
+          <i
+            className={
+              "fa fa-fw fa-microphone " +
+              (this.props.muted ? "fa-microphone-slash" : "fa-microphone")
+            }
+          ></i>
+        </button>
+      </div>
     );
   },
 });
@@ -116,86 +138,88 @@ var DTMFTone = createReactClass({
 
   render: function () {
     return (
-      <div className="keys">
-        <div className="key-row">
-          <button
-            className="btn btn-circle btn-default"
-            onClick={() => this.sendDigit("1")}
-          >
-            1
-          </button>
-          <button
-            className="btn btn-circle btn-default"
-            onClick={() => this.sendDigit("2")}
-          >
-            2<span>A B C</span>
-          </button>
-          <button
-            className="btn btn-circle btn-default"
-            onClick={() => this.sendDigit("3")}
-          >
-            3<span>D E F</span>
-          </button>
-        </div>
-        <div className="key-row">
-          <button
-            className="btn btn-circle btn-default"
-            onClick={() => this.sendDigit("4")}
-          >
-            4<span>G H I</span>
-          </button>
-          <button
-            className="btn btn-circle btn-default"
-            onClick={() => this.sendDigit("5")}
-          >
-            5<span>J K L</span>
-          </button>
-          <button
-            className="btn btn-circle btn-default"
-            onClick={() => this.sendDigit("6")}
-          >
-            6<span>M N O</span>
-          </button>
-        </div>
-        <div className="key-row">
-          <button
-            className="btn btn-circle btn-default"
-            onClick={() => this.sendDigit("7")}
-          >
-            7<span>P Q R S</span>
-          </button>
-          <button
-            className="btn btn-circle btn-default"
-            onClick={() => this.sendDigit("8")}
-          >
-            8<span>T U V</span>
-          </button>
-          <button
-            className="btn btn-circle btn-default"
-            onClick={() => this.sendDigit("9")}
-          >
-            9<span>W X Y Z</span>
-          </button>
-        </div>
-        <div className="key-row">
-          <button
-            className="btn btn-circle btn-default"
-            onClick={() => this.sendDigit("*")}
-          >
-            *
-          </button>
-          <button
-            className="btn btn-circle btn-default"
-            onClick={() => this.sendDigit("0")}
-          >
-            0
-          </button>
-          <button
-            className="btn btn-circle btn-default"
-            onClick={() => this.sendDigit("#")}
-          >
-            #
-          </button>
+      <div>
+        <div className="keys">
+          <div className="key-row">
+            <button
+              className="btn btn-circle btn-default"
+              onClick={() => this.sendDigit("1")}
+            >
+              1
+            </button>
+            <button
+              className="btn btn-circle btn-default"
+              onClick={() => this.sendDigit("2")}
+            >
+              2<span>A B C</span>
+            </button>
+            <button
+              className="btn btn-circle btn-default"
+              onClick={() => this.sendDigit("3")}
+            >
+              3<span>D E F</span>
+            </button>
+          </div>
+          <div className="key-row">
+            <button
+              className="btn btn-circle btn-default"
+              onClick={() => this.sendDigit("4")}
+            >
+              4<span>G H I</span>
+            </button>
+            <button
+              className="btn btn-circle btn-default"
+              onClick={() => this.sendDigit("5")}
+            >
+              5<span>J K L</span>
+            </button>
+            <button
+              className="btn btn-circle btn-default"
+              onClick={() => this.sendDigit("6")}
+            >
+              6<span>M N O</span>
+            </button>
+          </div>
+          <div className="key-row">
+            <button
+              className="btn btn-circle btn-default"
+              onClick={() => this.sendDigit("7")}
+            >
+              7<span>P Q R S</span>
+            </button>
+            <button
+              className="btn btn-circle btn-default"
+              onClick={() => this.sendDigit("8")}
+            >
+              8<span>T U V</span>
+            </button>
+            <button
+              className="btn btn-circle btn-default"
+              onClick={() => this.sendDigit("9")}
+            >
+              9<span>W X Y Z</span>
+            </button>
+          </div>
+          <div className="key-row">
+            <button
+              className="btn btn-circle btn-default"
+              onClick={() => this.sendDigit("*")}
+            >
+              *
+            </button>
+            <button
+              className="btn btn-circle btn-default"
+              onClick={() => this.sendDigit("0")}
+            >
+              0
+            </button>
+            <button
+              className="btn btn-circle btn-default"
+              onClick={() => this.sendDigit("#")}
+            >
+              #
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -261,7 +285,7 @@ var DialerApp = createReactClass({
   handleChangeNumber(e) {
     this.setState({
       currentNumber: e.target.value,
-      isValidNumber: /^([0-9]|#|\*)+$/.test(
+      isValidNumber: /^([0-9,+]|#|\*)+$/.test(
         e.target.value.replace(/[-()\s]/g, "")
       ),
     });

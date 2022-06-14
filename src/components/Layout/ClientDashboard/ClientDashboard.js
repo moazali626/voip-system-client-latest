@@ -153,6 +153,7 @@ const ClientDashboard = () => {
           {selectedIndex == 0 && <Redirect to="/amount"></Redirect>}
           {selectedIndex == 1 && <Redirect to="/edit-profile"></Redirect>}
           {selectedIndex == 2 && <Redirect to="/sms"></Redirect>}
+          {selectedIndex == 2.5 && <Redirect to="/make-call"></Redirect>}
           {selectedIndex == 3 && <Redirect to="/call"></Redirect>}
           {selectedIndex == 4 && <Redirect to="/mass-dialer"></Redirect>}
           {selectedIndex == 5 && <Redirect to="/documentation"></Redirect>}

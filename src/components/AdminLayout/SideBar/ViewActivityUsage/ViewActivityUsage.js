@@ -3,11 +3,11 @@ import ViewActivityUsageCSS from "./ViewActivityUsage.module.scss";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 
-const isBalanceAttribute = localStorage.getItem("balance");
+const isBalanceAttribute = localStorage.getItem("name");
 
 const ViewActivityUsage = () => {
   useEffect(() => {
-    if (isBalanceAttribute) {
+    if (isBalanceAttribute != "Admin") {
       localStorage.removeItem("jwt");
       localStorage.removeItem("id");
       localStorage.removeItem("email");

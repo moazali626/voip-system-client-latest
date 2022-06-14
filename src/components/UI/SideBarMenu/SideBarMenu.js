@@ -14,6 +14,7 @@ import CallIcon from "@material-ui/icons/Call";
 import DialpadIcon from "@material-ui/icons/Dialpad";
 import HelpIcon from "@material-ui/icons/Help";
 import QuestionAnswerIcon from "@material-ui/icons/QuestionAnswer";
+import AudiotrackIcon from "@mui/icons-material/Audiotrack";
 import { Link } from "react-router-dom";
 import SidebarCSS from "./SidebarMenu.module.scss";
 import { Redirect } from "react-router";
@@ -97,7 +98,21 @@ const SelectedListItem = ({ selectedIndexInfo, setSelectedIndexInfo }) => {
               <ListItemIcon>
                 <SmsIcon />
               </ListItemIcon>
-              <ListItemText primary="SMS" style={{ color: "black" }} />
+              <ListItemText primary="Send SMS" style={{ color: "black" }} />
+            </ListItem>
+
+            <ListItem
+              button
+              selected={selectedIndexInfo === 2.5}
+              onClick={(event) => handleListItemClick(event, 2.5)}
+            >
+              <ListItemIcon>
+                <CallIcon />
+              </ListItemIcon>
+              <ListItemText
+                primary="Make Live Call"
+                style={{ color: "black" }}
+              />
             </ListItem>
 
             <ListItem
@@ -106,9 +121,12 @@ const SelectedListItem = ({ selectedIndexInfo, setSelectedIndexInfo }) => {
               onClick={(event) => handleListItemClick(event, 3)}
             >
               <ListItemIcon>
-                <CallIcon />
+                <AudiotrackIcon />
               </ListItemIcon>
-              <ListItemText primary="Call" style={{ color: "black" }} />
+              <ListItemText
+                primary="Make Pre-recorded Call"
+                style={{ color: "black" }}
+              />
             </ListItem>
 
             <ListItem

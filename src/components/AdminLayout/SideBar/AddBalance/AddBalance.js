@@ -7,14 +7,14 @@ import TextField from "@material-ui/core/TextField";
 let result;
 
 // const isLoggedIn = localStorage.getItem("jwt");
-const isBalanceAttribute = localStorage.getItem("balance");
+const isBalanceAttribute = localStorage.getItem("name");
 
 const AddBalance = () => {
   useEffect(() => {
     // if (!isLoggedIn) {
     //   window.location = "/unauthorized";
     // }
-    if (isBalanceAttribute) {
+    if (isBalanceAttribute != "Admin") {
       localStorage.removeItem("jwt");
       localStorage.removeItem("id");
       localStorage.removeItem("email");
@@ -31,7 +31,7 @@ const AddBalance = () => {
     }
   }, []);
   const [allUsers, setAllUsers] = useState([]);
-  const [amount, setAmount] = useState();
+  const [amount, setAmount] = useState(0);
 
   useEffect(() => {
     const getAllUsers = async () => {
@@ -42,7 +42,6 @@ const AddBalance = () => {
   }, []);
 
   const amountHandler = (e) => {
-    console.log(e.target.value);
     setAmount(e.target.value);
   };
 
@@ -83,16 +82,20 @@ const AddBalance = () => {
                     id="outlined-number"
                     label="Amount in $"
                     type="number"
-                    InputLabelProps={{
-                      shrink: true,
-                    }}
+                    // InputLabelProps={{
+                    //   shrink: true,
+                    // }}
+                    // inputProps={{ min: 4, max: 10 }}
                     onChange={amountHandler}
+                    // InputProps={{ inputProps: { min: 0, max: 10 } }}
                   />
                 </th>
                 <th>
                   <Button
-                    variant="contained"
-                    style={{ color: "white", backgroundColor: "#e62828" }}
+                    variant="outlined"
+                    color="primary"
+                    disabled={amount <= 0 || amount > 1000}
+                    // style={{ color: "white", backgroundColor: "#e62828" }}
                     onClick={() => {
                       addBalanceHandler(_id), window.location.reload();
                     }}
@@ -104,6 +107,11 @@ const AddBalance = () => {
             );
           })}
       </table>
+      <div>
+        <p style={{ color: "red", textAlign: "center" }}>
+          Note: Amount should be between $1-$1000
+        </p>
+      </div>
     </div>
   );
 };
