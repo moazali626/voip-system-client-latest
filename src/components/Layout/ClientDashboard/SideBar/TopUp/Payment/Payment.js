@@ -51,9 +51,6 @@ const Payment = (props) => {
               onClick={paymentHandler}
             />
           </div>
-          <div>
-            <img src={paypalImg} width="200px" alt="card payment" />
-          </div>
         </div>
       </div>
     </>

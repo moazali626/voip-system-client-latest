@@ -6,6 +6,7 @@ import SendSMSCSS from "./SendSMS.module.scss";
 import AppBar from "../../UI/AppBar/AppBar";
 import DatePicker from "../../UI/DatePicker/DatePicker";
 import Stack from "@mui/material/Stack";
+import validator from "validator";
 
 const SendSMS = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -15,12 +16,15 @@ const SendSMS = () => {
   const [ElapsedTime, setElapsedTime] = useState();
   const [isScheduled, setIsScheduled] = useState(false);
   // const [selectDateError, setSelectDateError] = useState(false);
+  const [recipeint, setRecpient] = useState("");
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState();
 
   const senderNumber = localStorage.getItem("phone");
   const userId = localStorage.getItem("id");
 
-  const recipeintRef = useRef();
-  const messageRef = useRef();
+  // const recipeintRef = useRef();
+  // const messageRef = useRef();
 
   let elapsed;
 
@@ -30,10 +34,7 @@ const SendSMS = () => {
     setIsSubmitted(true);
     setSelectedDate(e.target.value);
 
-    // recipeintRef.current.value = "";
-    // messageRef.current.value = "";
     let start = new Date();
-    // console.log(e.target.value);
     let end = new Date(e.target.value);
 
     elapsed = end.getTime() - start.getTime(); // elapsed time in milliseconds
@@ -50,18 +51,9 @@ const SendSMS = () => {
 
   const submitScheduleSMSHandler = async (e) => {
     e.preventDefault();
-    //scheduling SMS
     setIsScheduled(true);
 
-    const recipeint = recipeintRef.current.value;
-    const message = messageRef.current.value;
-
-    recipeintRef.current.value = "";
-    messageRef.current.value = "";
-
     setTimeout(() => {
-      console.log("set timeout ran");
-
       result = fetch(
         `http://localhost:4000/send/?phone=${recipeint}&message=${message}`,
         {
@@ -71,9 +63,7 @@ const SendSMS = () => {
           },
         }
       );
-      // console.log(result);
       setIsSubmitted(true);
-      setIsRequestCompleted(true);
     }, ElapsedTime);
   };
 
@@ -84,9 +74,6 @@ const SendSMS = () => {
   const smsHandler = async (e) => {
     e.preventDefault();
 
-    const recipeint = recipeintRef.current.value;
-    const message = messageRef.current.value;
-
     result = await fetch(
       `http://localhost:4000/send/?phone=${recipeint}&message=${message}`,
       {
@@ -96,12 +83,17 @@ const SendSMS = () => {
         },
       }
     );
-    // console.log(result);
-    setIsSubmitted(true);
-    setIsRequestCompleted(true);
 
-    recipeintRef.current.value = "";
-    messageRef.current.value = "";
+    setIsSubmitted(true);
+
+    if (result.ok) {
+      setIsRequestCompleted(true);
+      console.log("error not set");
+    } else {
+      console.log("error set");
+      setIsRequestCompleted(false);
+      setError(true);
+    }
   };
 
   const textStyle = {
@@ -127,7 +119,7 @@ const SendSMS = () => {
               variant="outlined"
               fullWidth
               type="number"
-              inputRef={recipeintRef}
+              onChange={(e) => setRecpient(e.target.value)}
               required
             />
           </Box>
@@ -145,7 +137,9 @@ const SendSMS = () => {
               variant="outlined"
               width="400px"
               fullWidth
-              inputRef={messageRef}
+              onChange={(e) => {
+                setMessage(e.target.value);
+              }}
               required
             />
           </Box>
@@ -158,6 +152,8 @@ const SendSMS = () => {
             variant="contained"
             color="primary"
             onClick={smsHandler}
+            disable={name.length <= 0}
+            disabled={message.length <= 0}
           >
             Send Now
           </Button>
@@ -207,6 +203,18 @@ const SendSMS = () => {
           }}
         >
           Your message has been sent successfully
+        </p>
+      )}
+      {isSubmitted && error && (
+        <p
+          style={{
+            color: "red",
+            marginTop: "0.5rem",
+            fontSize: "1rem",
+            marginLeft: "0.7rem",
+          }}
+        >
+          Sorry, something went wrong...
         </p>
       )}
       {dateError && (

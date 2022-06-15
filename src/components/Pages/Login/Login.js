@@ -82,7 +82,7 @@ const Login = () => {
             />
           </div>
           {!isValidLogin && isFormSubmitted && (
-            <p style={{ color: "red", fontSize: "15px", marginTop: "0.8rem" }}>
+            <p style={{ color: "red", fontSize: "15px", marginBottom: "1rem" }}>
               Email or Password is Incorrect
             </p>
           )}
