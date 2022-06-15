@@ -8,6 +8,12 @@ import axios from "axios";
 
 const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  // const [name, setName] = useState("");
+  const [isValidName, setIsValidName] = useState();
+  // const [email, setEmail] = useState("");
+  const [isValidEmail, setIsValidEmail] = useState();
+  // const [message, setMessage] = useState("");
+  const [isValidMessage, setIsValidMessage] = useState();
 
   const nameRef = useRef();
   const emailRef = useRef();
@@ -25,11 +31,43 @@ const Contact = () => {
       email,
       message,
     });
+
     if (request) {
       nameRef.current.value = "";
       emailRef.current.value = "";
       messageRef.current.value = "";
       return setIsSubmitted(true);
+    }
+  };
+
+  const nameHandler = (e) => {
+    const string = /^[A-Za-z_ ]{4,}$/;
+    const regexTest = string.test(e.target.value.trim());
+    if (regexTest) {
+      setIsValidName(true);
+    } else {
+      setIsValidName(false);
+    }
+  };
+
+  const emailHandler = (e) => {
+    const string =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const regexTest = string.test(e.target.value.trim());
+    if (regexTest) {
+      setIsValidEmail(true);
+    } else {
+      setIsValidEmail(false);
+    }
+  };
+
+  const messageHandler = (e) => {
+    const string = /^.{1,}$/;
+    const regexTest = string.test(e.target.value.trim());
+    if (regexTest) {
+      setIsValidMessage(true);
+    } else {
+      setIsValidMessage(false);
     }
   };
 
@@ -40,51 +78,66 @@ const Contact = () => {
           <ContactMailIcon className={ContactCSS["contact-icon"]} />
           <h1>Get In Touch</h1>
           <form autoComplete="off" onSubmit={submitHandler}>
-            <TextField
-              className={ContactCSS.name}
-              label="Full Name"
-              variant="outlined"
-              inputProps={{
-                maxLength: 80,
-              }}
-              inputRef={nameRef}
-              required
-            />
-            <TextField
-              className={ContactCSS.email}
-              label="Email"
-              type="email"
-              variant="outlined"
-              inputProps={{
-                maxLength: 254,
-              }}
-              inputRef={emailRef}
-              required
-            />
-            <TextField
-              className={ContactCSS.message}
-              label="Message"
-              variant="outlined"
-              multiline
-              rows={7}
-              inputProps={{
-                maxLength: 1000,
-              }}
-              inputRef={messageRef}
-              required
-            />
-            <Button
-              variant="contained"
-              type="Submit"
-              color="primary"
-              size="large"
-              style={{ marginTop: "7.8rem" }}
-            >
-              Send Message
-            </Button>
+            <div>
+              <TextField
+                className={ContactCSS.name}
+                label="Full Name"
+                variant="outlined"
+                inputProps={{
+                  maxLength: 80,
+                }}
+                onChange={nameHandler}
+                inputRef={nameRef}
+                required
+                // value={name}
+              />
+
+              <TextField
+                className={ContactCSS.email}
+                label="Email"
+                type="email"
+                variant="outlined"
+                inputProps={{
+                  maxLength: 254,
+                }}
+                onChange={emailHandler}
+                required
+                inputRef={emailRef}
+                // value={email}
+              />
+              <TextField
+                className={ContactCSS.message}
+                label="Message"
+                variant="outlined"
+                multiline
+                rows={7}
+                inputRef={messageRef}
+                onChange={messageHandler}
+                inputProps={{
+                  maxLength: 1000,
+                }}
+                // value={message}
+                required
+              />
+              <div></div>
+            </div>
+            <div>
+              <Button
+                variant="contained"
+                type={isValidName ? "Submit" : "button"}
+                color="primary"
+                onClick={submitHandler}
+                size="large"
+                className={ContactCSS.submit}
+                style={{ display: "relative", top: "125px" }}
+                disabled={!isValidName || !isValidEmail || !isValidMessage}
+              >
+                Send Message
+              </Button>
+            </div>
             {isSubmitted && (
-              <p style={{ color: "green", marginTop: "0.5rem" }}>
-                Your message has been sent
+              <p style={{ color: "green", marginTop: "9rem" }}>
+                Your message has been sent successfully.
               </p>
             )}
           </form>

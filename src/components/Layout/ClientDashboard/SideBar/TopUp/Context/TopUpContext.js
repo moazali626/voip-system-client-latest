@@ -4,7 +4,7 @@ export const TopUpContext = createContext();
 
 export const TopUpProvider = (props) => {
   const [selectedTopUpItem, setSelectedTopUpItem] = useState(0);
-  const [topUpAmount, setTopUpAmount] = useState(0);
+  const [topUpAmount, setTopUpAmount] = useState();
 
   return (
     <TopUpContext.Provider

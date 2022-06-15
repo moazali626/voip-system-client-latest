@@ -7,7 +7,7 @@
 }
 .form {
   width: 70vw;
-  height: 77vh;
+  height: 80vh;
   background-color: #feffff;
   border-radius: 10px;
   display: grid;
@@ -110,4 +110,7 @@
     display: block !important;
     margin: 0 auto !important;
   }
+}
+.email {
+  display: block;
 }

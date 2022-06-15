@@ -14,7 +14,7 @@ const OneActiveNumber = () => {
           <p style={{ color: "red", display: "inline" }}>
             Each account is limited to only one virtual phone number.
           </p>{" "}
-          If you want to change or delete your phone number, please
+          {/* If you want to change or delete your phone number, please
           <Link to="/support-center">
             {" "}
             <p
@@ -27,7 +27,7 @@ const OneActiveNumber = () => {
               contact us
             </p>{" "}
           </Link>
-          freely.
+          freely. */}
         </p>
 
         <Link to="/">

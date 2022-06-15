@@ -32,6 +32,7 @@ const TopUp = () => {
         <p>Select your TopUp amount</p>
         <div className={AmountCSS["topup-btn-wrapper"]}>
           <Link
+            style={{ textDecoration: "none" }}
             to={{
               pathname: `/payment`,
               state: { value: 1 },
@@ -56,6 +57,7 @@ const TopUp = () => {
             </Button>
           </Link>
           <Link
+            style={{ textDecoration: "none" }}
             to={{
               pathname: "/payment",
               state: { value: 5 },
@@ -75,6 +77,7 @@ const TopUp = () => {
             </Button>
           </Link>
           <Link
+            style={{ textDecoration: "none" }}
             to={{
               pathname: "/payment",
               state: { value: 10 },
@@ -96,36 +99,49 @@ const TopUp = () => {
         </div>
         <div style={AmountCSS["custom-amount-wrapper"]}>
           <span
-            style={{ position: "relative", top: "1.45rem", fontSize: "1.3rem" }}
+            style={{
+              position: "relative",
+              top: "1.35rem",
+              right: "0.4rem",
+              fontSize: "1.3rem",
+            }}
           >
-            ${" "}
+            $
           </span>
           <TextField
             className={AmountCSS["custom-amount-btn"]}
             variant="outlined"
             size="small"
             placeholder="Custom Amount"
+            type="number"
             onChange={customAmountHandler}
           ></TextField>
         </div>
-        {topUpAmount != 0 && (
-          <Link
-            to={{
-              pathname: "payment",
-              state: { value: topUpAmount },
-            }}
+        <Link
+          to={{
+            pathname:
+              topUpAmount <= 0 || topUpAmount > 1000 ? "/amount" : "/payment",
+            state: { value: topUpAmount },
+          }}
+          style={{ textDecoration: "none" }}
+        >
+          <Button
+            variant="outlined"
+            color="primary"
+            style={{ marginTop: "0.2rem", textDecoration: "none" }}
+            disabled={topUpAmount <= 0 || topUpAmount > 1000}
+            // onClick={() => setSelectedTopUpItem(1)}
           >
-            <Button
-              variant="outlined"
-              color="primary"
-              style={{ marginTop: "0.2rem" }}
-              // onClick={() => setSelectedTopUpItem(1)}
-            >
-              TopUp
-            </Button>
-          </Link>
-        )}
+            TopUp
+          </Button>
+        </Link>
         {/* {selectedIndex == 1 && <Redirect to="/edit-profile"></Redirect>} */}
+      </div>
+      <div className={AmountCSS["deposit-note"]}>
+        <p>
+          Note: Custom amount should be between{" "}
+          <p style={{ color: "green", display: "inline" }}> $1-$1000</p>
+        </p>
       </div>
     </div>
   );

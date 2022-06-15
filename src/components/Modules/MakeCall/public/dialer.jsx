@@ -1,7 +1,7 @@
 import React from "react";
 var createReactClass = require("create-react-class");
 import "./dialer.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import CallIcon from "@mui/icons-material/Call";
 
 var NumberInputText = createReactClass({
