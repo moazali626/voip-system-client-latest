@@ -109,8 +109,8 @@ const MenuListComposition = () => {
                     id="menu-list-grow"
                     onKeyDown={handleListKeyDown}
                   >
-                    <MenuItem onClick={handleClose}>Edit Profile</MenuItem>
-                    <MenuItem onClick={handleClose}>FAQ</MenuItem>
+                    {/* <MenuItem onClick={handleClose}>Edit Profile</MenuItem> */}
+                    {/* <MenuItem onClick={handleClose}>FAQ</MenuItem> */}
                     <MenuItem onClick={(handleClose, logOut)}>Logout</MenuItem>
                   </MenuList>
                 </ClickAwayListener>

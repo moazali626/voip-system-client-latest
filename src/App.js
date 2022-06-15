@@ -44,6 +44,7 @@ import Dummy from "./components/Pages/Dummy/Dummy";
 import ConvertToMP3 from "./components/Modules/ConvertToMP3/ConvertToMP3";
 import ReceiveCall from "./components/Modules/ReceiveCall/ReceiveCall";
 import Dialer from "./components/Modules/MakeCall/public/dialer.jsx";
+import PaymentCheck from "./components/Modules/PaymentCheck/PaymentCheck";
 
 //admin dashboard imports
 
@@ -106,6 +107,7 @@ const App = () => {
             <Route path="/make-call" exact component={Dialer} />
             <Route path="/convert-to-mp3" component={ConvertToMP3} />
             <Route path="/broadcast" component={Broadcast} />
+            <Route path="/payment-check" component={PaymentCheck} />
             <Route path="/unauthorized" component={Unauthorized} />
             {/* <Route path="/" component={Dummy} /> */}
             <Route exact component={LandingPage} />

@@ -6,6 +6,7 @@ import Button from "@material-ui/core/Button";
 import axios from "axios";
 
 const isLoggedIn = localStorage.getItem("jwt");
+const topupAmount = localStorage.getItem("topup");
 
 let balanceToBeUpdated = localStorage.getItem("topup");
 
@@ -16,40 +17,14 @@ const PaymentSuccess = () => {
     if (!isLoggedIn) {
       window.location = "/unauthorized";
     }
-    const updateBalance = async () => {
-      balanceToBeUpdated = parseInt(balanceToBeUpdated);
-
-      if (balanceToBeUpdated) {
-        let currentBalance = localStorage.getItem("balance");
-        currentBalance = parseInt(currentBalance);
-        console.log("current balance", currentBalance);
-        // console.log(typeof currentBalance);
-        let newBalance = currentBalance + balanceToBeUpdated;
-        console.log(typeof newBalance);
-        console.log("new balance", newBalance);
-        localStorage.removeItem("balance");
-        localStorage.setItem("balance", newBalance);
-        console.log("end of function");
-
-        const userId = localStorage.getItem("id");
-
-        await axios.post("http://localhost:4000/add-balance-manually", {
-          headers: {
-            id: userId,
-            amount: newBalance,
-          },
-        });
-      }
-    };
-    updateBalance();
   }, []);
 
-  window.onload = function () {
-    if (!localStorage.justOnce) {
-      localStorage.setItem("justOnce", "true");
-      window.location.reload();
-    }
-  };
+  // window.onload = function () {
+  //   if (!localStorage.justOnce) {
+  //     localStorage.setItem("justOnce", "true");
+  //     window.location.reload();
+  //   }
+  // };
 
   return (
     <div className={PaymentSuccessCSS.container}>
@@ -60,9 +35,9 @@ const PaymentSuccess = () => {
             Your account has been successfully credited.
           </p>
           <p>
-            Amount: <b>${balanceToBeUpdated}</b>
+            Amount: <b>${topupAmount}</b>
           </p>
-          <Link to="/">
+          <Link to="/" style={{ textDecoration: "none" }}>
             <Button variant="outlined" color="primary" value="1">
               GO BACK TO HOMEPAGE
             </Button>

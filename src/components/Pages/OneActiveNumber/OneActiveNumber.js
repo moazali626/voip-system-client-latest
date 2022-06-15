@@ -30,7 +30,7 @@ const OneActiveNumber = () => {
           freely. */}
         </p>
 
-        <Link to="/">
+        <Link to="/" style={{ textDecoration: "none" }}>
           <Button variant="outlined" color="primary" value="1">
             GO BACK TO HOMEPAGE
           </Button>

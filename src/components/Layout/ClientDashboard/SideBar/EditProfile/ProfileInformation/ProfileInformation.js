@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useState } from "react";
 import ProfileInformationCSS from "./ProfileInformation.module.scss";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
@@ -10,10 +10,10 @@ const localId = localStorage.getItem("id");
 
 const initial = {
   name: localName,
-  nameIsValid: false,
+  // nameIsValid: false,
 
   email: localEmail,
-  emailIsValid: false,
+  // emailIsValid: false,
 
   currentPassword: "",
   newPassword: "",
@@ -31,6 +31,8 @@ const reducer = (state, action) => {
 };
 
 const ProfileInformation = () => {
+  const [isValidName, setIsValidName] = useState();
+  const [isValidEmail, setIsValidEmail] = useState();
   const [state, dispatch] = useReducer(reducer, initial);
 
   const {
@@ -46,33 +48,37 @@ const ProfileInformation = () => {
 
     // profileError,
     passError,
-    nameIsValid,
-    emailIsValid,
+    // nameIsValid,
+    // emailIsValid,
   } = state;
 
   const newNameHandler = (e) => {
     dispatch({ type: "name", payload: e.target.value });
 
-    // const string = /^[A-Za-z_ ]{4,}$/;
-    // const regexTest = string.test(e.target.value.trim());
-    // if (regexTest) {
-    //   dispatch({ type: "nameIsValid", payload: true });
-    // }
+    const string = /^[A-Za-z_ ]{4,}$/;
+    const regexTest = string.test(e.target.value.trim());
+    if (regexTest) {
+      setIsValidName(true);
+    } else {
+      setIsValidName(false);
+    }
   };
 
   const newEmailHandler = (e) => {
     dispatch({ type: "email", payload: e.target.value });
 
-    // const string =
-    //   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    // const regexTest = string.test(e.target.value.trim());
-    // if (regexTest) {
-    //   dispatch({ type: "emailIsValid", payload: true });
-    // }
+    const string =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const regexTest = string.test(e.target.value.trim());
+    if (regexTest) {
+      setIsValidEmail(true);
+    } else {
+      setIsValidEmail(false);
+    }
   };
 
   const basicInfoHandler = async () => {
-    const request = await axios.patch(
+    const request = await axios.post(
       "http://localhost:4000/update-basic-profile",
       {
         id: localId,
@@ -120,7 +126,7 @@ const ProfileInformation = () => {
       return;
     }
 
-    const request = await axios.patch(
+    const request = await axios.post(
       "http://localhost:4000/update-pass-profile",
       {
         id: localId,
@@ -137,8 +143,13 @@ const ProfileInformation = () => {
         payload: "Current Password is Wrong",
       });
     }
+
     if (request.status === 200) {
       dispatch({ type: "passInfoSaved", payload: true });
+      dispatch({ type: "currentPassword", payload: "" });
+      dispatch({ type: "newPassword", payload: "" });
+      dispatch({ type: "confirmNewPassword", payload: "" });
+      window.location.reload();
     }
   };
 
@@ -189,7 +200,11 @@ const ProfileInformation = () => {
           variant="outlined"
           color="primary"
           type="submit"
-          disabled={!isBasicInfoChanged}
+          disabled={
+            !isBasicInfoChanged ||
+            isValidName === false ||
+            isValidEmail === false
+          }
           onClick={basicInfoHandler}
         >
           Submit

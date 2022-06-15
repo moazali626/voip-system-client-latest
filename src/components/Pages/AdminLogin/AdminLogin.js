@@ -77,17 +77,25 @@ const AdminLogin = () => {
             />
           </div>
           {!isValidLogin && isFormSubmitted && (
-            <p style={{ color: "red", fontSize: "15px", marginTop: "0.8rem" }}>
+            <p
+              style={{
+                color: "red",
+                fontSize: "15px",
+                marginTop: "0.8rem",
+                // marginBottom: "1rem",
+              }}
+            >
               Email or Password is Incorrect
             </p>
           )}
-          <div className={AdminLoginCSS["password-reset"]}>
+          {/* <div className={AdminLoginCSS["password-reset"]}>
             <Link to="/reset-password">
               <p style={{ color: "black" }}>Forget Password?</p>
             </Link>
-          </div>
+          </div> */}
           <Button
             className={AdminLoginCSS["login-page-btn"]}
+            style={{ marginTop: "1rem" }}
             variant="contained"
             color="primary"
             type="submit"
