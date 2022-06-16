@@ -10,7 +10,7 @@ import validator from "validator";
 
 const SendSMS = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState();
   const [isRequestCompleted, setIsRequestCompleted] = useState(false);
   const [dateError, setDateError] = useState(false);
   const [ElapsedTime, setElapsedTime] = useState();
@@ -19,6 +19,7 @@ const SendSMS = () => {
   const [recipeint, setRecpient] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState();
+  const [isRecipientValid, setIsRecipientValid] = useState();
 
   const senderNumber = localStorage.getItem("phone");
   const userId = localStorage.getItem("id");
@@ -30,10 +31,8 @@ const SendSMS = () => {
 
   const scheduleSMSHandler = (e) => {
     e.preventDefault();
-
-    setIsSubmitted(true);
     setSelectedDate(e.target.value);
-
+    setIsSubmitted(true);
     let start = new Date();
     let end = new Date(e.target.value);
 
@@ -53,9 +52,15 @@ const SendSMS = () => {
     e.preventDefault();
     setIsScheduled(true);
 
+    const recipientNew = recipeint;
+    const messageNew = message;
+
+    setRecpient("");
+    setMessage("");
+
     setTimeout(() => {
       result = fetch(
-        `http://localhost:4000/send/?phone=${recipeint}&message=${message}`,
+        `http://localhost:4000/send/?phone=${recipientNew}&message=${messageNew}`,
         {
           headers: {
             senderNumber: senderNumber,
@@ -63,11 +68,10 @@ const SendSMS = () => {
           },
         }
       );
+
       setIsSubmitted(true);
     }, ElapsedTime);
   };
-
-  // const scheduleSMSHandler2 = () => {};
 
   let result;
 
@@ -86,13 +90,25 @@ const SendSMS = () => {
 
     setIsSubmitted(true);
 
+    setRecpient("");
+    setMessage("");
+
     if (result.ok) {
       setIsRequestCompleted(true);
-      console.log("error not set");
     } else {
-      console.log("error set");
       setIsRequestCompleted(false);
       setError(true);
+    }
+  };
+
+  const recipientHandler = (e) => {
+    setRecpient(e.target.value);
+    const isPhoneNumberValid = validator.isMobilePhone(e.target.value);
+    console.log(isPhoneNumberValid);
+    if (isPhoneNumberValid) {
+      setIsRecipientValid(true);
+    } else {
+      setIsRecipientValid(false);
     }
   };
 
@@ -118,9 +134,10 @@ const SendSMS = () => {
               label="Recipient phone number"
               variant="outlined"
               fullWidth
-              type="number"
-              onChange={(e) => setRecpient(e.target.value)}
+              // type="number"
+              onChange={recipientHandler}
               required
+              value={recipeint}
             />
           </Box>
         </div>
@@ -141,6 +158,7 @@ const SendSMS = () => {
                 setMessage(e.target.value);
               }}
               required
+              value={message}
             />
           </Box>
         </div>
@@ -152,8 +170,8 @@ const SendSMS = () => {
             variant="contained"
             color="primary"
             onClick={smsHandler}
-            disable={name.length <= 0}
-            disabled={message.length <= 0}
+            // disabled={message.length <= 0}
+            disabled={isRecipientValid != true || message.length <= 0}
           >
             Send Now
           </Button>
@@ -162,7 +180,7 @@ const SendSMS = () => {
           <Button
             type="submit"
             onClick={submitScheduleSMSHandler}
-            style={buttonStyle}
+            // style={buttonStyle}
             style={{
               position: "absolute",
               top: "104%",
@@ -171,8 +189,13 @@ const SendSMS = () => {
             }}
             variant="contained"
             color="primary"
-            // disabled={isSubmitted == false}
-            // disabled={dateError}
+            disabled={
+              !selectedDate ||
+              isRecipientValid != true ||
+              message.length <= 0 ||
+              dateError
+            }
+            // disabled
           >
             Schedule Later
           </Button>

@@ -72,7 +72,7 @@ const Broadcast = () => {
     });
 
     if (callStatus.data) {
-      setCallSuccess(true);
+      // setCallSuccess(true);
     }
 
     // uploadFileRef.current.value = "";
