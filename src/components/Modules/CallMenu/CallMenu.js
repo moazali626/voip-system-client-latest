@@ -5,13 +5,13 @@
 // import "semantic-ui-css/semantic.min.css";
 
 // const CallMenu = () => {
-//   //   useEffect(() => {
-//   //     console.log("useEffect of CallMenu ran");
-//   //     socket.on("disconnect", () => {
-//   //       console.log("Socked disconnected");
-//   //     });
-//   //     return () => {};
-//   //   }, []);
+//   useEffect(() => {
+//     console.log("useEffect of CallMenu ran");
+//     socket.on("disconnect", () => {
+//       console.log("Socked disconnected");
+//     });
+//     return () => {};
+//   }, []);
 //   return (
 //     <div className={CallMenuCSS.container}>
 //       <Container className={CallMenuCSS.wrapper}>

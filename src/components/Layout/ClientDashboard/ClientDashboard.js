@@ -72,7 +72,6 @@ const ClientDashboard = () => {
       const balance = localStorage.getItem("balance");
 
       if (user.data.balance != balance) {
-        console.log("if ran");
         localStorage.removeItem("balance");
         localStorage.setItem("balance", user.data.balance);
       }

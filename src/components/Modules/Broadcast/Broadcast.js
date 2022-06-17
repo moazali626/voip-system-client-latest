@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 // import UploadFile from "../../../../Modules/UploadFile/UploadFile";
 import AppBar from "../../../components/UI/AppBar/AppBar";
+import socket from "../../../utils/SocketIo";
 
 const {
   BlobServiceClient,
@@ -20,11 +21,20 @@ const phone = localStorage.getItem("phone");
 
 const Broadcast = () => {
   const [uploading, setUploading] = useState(null);
+  const [callBackStatus, setCallBackStatus] = useState({});
 
   useEffect(() => {
     if (!isLoggedIn) {
       window.location = "/unauthorized";
     }
+    socket.on("disconnect", () => {
+      console.log("Socked disconnected from massDialer Component");
+    });
+    socket.on("outgoing-status", (data) => {
+      console.log("Original Data", data);
+      setCallBackStatus(data);
+      console.log("useState Value:", callBackStatus);
+    });
   }, []);
 
   const recipientRef = useRef();
@@ -92,7 +102,6 @@ const Broadcast = () => {
           >
             {/* <label htmlFor="myfile">Make a call</label> */}
             <AppBar color="secondary" title={"MASS DIALER"} />
-
             <div>
               <Box width={350}>
                 <TextField
@@ -145,6 +154,22 @@ const Broadcast = () => {
                 </p>
               )} */}
             </Box>
+            {callBackStatus.Called && (
+              <div style={{ marginTop: "1rem" }}>
+                <p style={{ textAlign: "left", color: "green" }}>
+                  <span style={{ color: "red" }}>Calling: </span>
+                  {callBackStatus.Called && callBackStatus.Called}
+                </p>
+                <p style={{ textAlign: "left", color: "green" }}>
+                  <span style={{ color: "red" }}>Call Status: </span>
+                  {callBackStatus.CallStatus && callBackStatus.CallStatus}
+                </p>
+                <p style={{ textAlign: "left", color: "green" }}>
+                  <span style={{ color: "red" }}>Called Country: </span>
+                  {callBackStatus.CalledCountry && callBackStatus.CalledCountry}
+                </p>
+              </div>
+            )}
           </form>
         </div>
       )}

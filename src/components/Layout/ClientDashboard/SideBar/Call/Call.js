@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import UploadFile from "../../../../Modules/UploadFile/UploadFile";
 import AppBar from "../../../../UI/AppBar/AppBar";
+import validator from "validator";
 
 const {
   BlobServiceClient,
@@ -21,6 +22,9 @@ const phone = localStorage.getItem("phone");
 const Call = () => {
   const [uploading, setUploading] = useState(null);
   const [callSuccess, setCallSuccess] = useState(null);
+  const [recipient, setRecpient] = useState();
+  const [isValidRecipient, setIsValidRecipient] = useState();
+  const [file, setFile] = useState();
 
   useEffect(() => {
     if (!isLoggedIn) {
@@ -28,14 +32,11 @@ const Call = () => {
     }
   }, []);
 
-  const recipientRef = useRef();
-  const uploadFileRef = useRef();
-
   const { register, handleSubmit } = useForm();
 
   const onSubmit = async (data) => {
     if (!data.file) {
-      console.log("exit");
+      console.log("exitting");
       return;
     }
     const blobSasUrl =
@@ -68,7 +69,7 @@ const Call = () => {
     const callStatus = await axios.post("http://localhost:4000/make-call", {
       headers: {
         fileName: data.file[0].name,
-        phone: recipientRef.current.value,
+        phone: recipient,
       },
     });
 
@@ -76,8 +77,17 @@ const Call = () => {
       setCallSuccess(true);
     }
 
-    // uploadFileRef.current.value = "";
-    recipientRef.current.value = "";
+    setRecpient("");
+  };
+
+  const recipientHandler = (e) => {
+    setRecpient(e.target.value);
+    const isValid = validator.isMobilePhone(e.target.value);
+    if (isValid) {
+      setIsValidRecipient(true);
+    } else {
+      setIsValidRecipient(false);
+    }
   };
 
   return (
@@ -92,7 +102,6 @@ const Call = () => {
               method="POST"
               enctype="multipart/form-data"
             >
-              {/* <label htmlFor="myfile">Make a call</label> */}
               <AppBar title={"MAKE A CALL"} />
 
               <div>
@@ -103,42 +112,27 @@ const Call = () => {
                     label="Sender phone number"
                     variant="outlined"
                     fullWidth
-                    type="number"
-                    inputRef={recipientRef}
+                    onChange={recipientHandler}
                     required
                   />
                 </Box>
               </div>
               <br></br>
               <Box width={350}>
-                <input
-                  type="file"
-                  {...register("file")}
-                  Inputref={uploadFileRef}
-                />
+                <input type="file" {...register("file")} />
                 <Button
                   required
                   type="submit"
                   variant="contained"
+                  color="primary"
+                  disabled={isValidRecipient != true}
                   style={{
-                    backgroundColor: "#4250A7",
-                    color: "white",
                     marginTop: "1rem",
                   }}
                   onClick={onSubmit}
                 >
-                  Send Now
+                  Call Now
                 </Button>
-                {/* {uploading && (
-                  <p style={{ color: "green", marginTop: "0.8rem" }}>
-                    Uploading file... please wait
-                  </p>
-                )}
-                {callSuccess && (
-                  <p style={{ color: "green", marginTop: "0.8rem" }}>
-                    Call has been placed successfully
-                  </p>
-                )} */}
               </Box>
             </form>
           </div>
