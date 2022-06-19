@@ -20,30 +20,35 @@ const OutgoingSMSHistory = () => {
     receivedSms && console.log(receivedSms);
   }
   return (
-    <div className={OutgoingSMSHistoryCSS.scrollit}>
-      <div className={OutgoingSMSHistoryCSS.container}>
-        <table>
-          <tr>
-            <th>To</th>
-            <th>From</th>
-            <th>Message</th>
-            <th>Date & Time</th>
-          </tr>
-
-          {receivedSms &&
-            receivedSms.map((item) => {
-              let { to, from, body, date } = item;
-              return (
-                <tr>
-                  <th>{to}</th>
-                  <th>{from}</th>
-                  <th>{body}</th>
-                  <th>{date}</th>
-                </tr>
-              );
-            })}
-        </table>
-      </div>
+    <div
+      className={OutgoingSMSHistoryCSS.container}
+      style={{
+        overflow: "scroll",
+        height: "320px",
+        width: "1100px",
+        overflow: "auto",
+      }}
+    >
+      <table>
+        <tr>
+          <th>To</th>
+          <th>From</th>
+          <th>Message</th>
+          <th>Date & Time</th>
+        </tr>
+        {receivedSms &&
+          receivedSms.map((item) => {
+            let { to, from, body, date } = item;
+            return (
+              <tr>
+                <th>{to}</th>
+                <th>{from}</th>
+                <th>{body}</th>
+                <th>{date}</th>
+              </tr>
+            );
+          })}
+      </table>
     </div>
   );
 };

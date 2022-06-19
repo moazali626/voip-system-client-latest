@@ -55,64 +55,101 @@ const AddBalance = () => {
     });
   };
   return (
-    <div className={AddBalanceCSS.container}>
-      <table>
-        <tr>
-          {/* <th>User ID</th> */}
-          <th>Name</th>
-          <th>Email</th>
-          <th>Associated Phone</th>
-          <th>Balance</th>
-          <th>Amount</th>
-          <th>Action</th>
-        </tr>
+    <>
+      <div
+        className={AddBalanceCSS.container}
+        style={{
+          overflow: "scroll",
+          height: "320px",
+          width: "1100px",
+          overflow: "auto",
+        }}
+      >
+        <table>
+          <tr>
+            {/* <th>User ID</th> */}
+            <th>Name</th>
+            <th>Email</th>
+            <th>Associated Phone</th>
+            <th>Balance</th>
+            {/* <th>Amount</th> */}
+            <th>Action</th>
+          </tr>
 
-        {allUsers &&
-          allUsers.map((item) => {
-            let { _id, name, email, phone, balance } = item;
-            return (
-              <tr>
-                {/* <th>{_id}</th> */}
-                <th>{name}</th>
-                <th>{email}</th>
-                <th>+1{phone}</th>
-                <th>${balance}</th>
-                <th>
-                  <TextField
-                    id="outlined-number"
-                    label="Amount in $"
-                    type="number"
-                    // InputLabelProps={{
-                    //   shrink: true,
-                    // }}
-                    // inputProps={{ min: 4, max: 10 }}
-                    onChange={amountHandler}
-                    // InputProps={{ inputProps: { min: 0, max: 10 } }}
-                  />
-                </th>
-                <th>
-                  <Button
-                    variant="outlined"
-                    color="primary"
-                    disabled={amount <= 0 || amount > 1000}
-                    // style={{ color: "white", backgroundColor: "#e62828" }}
-                    onClick={() => {
-                      addBalanceHandler(_id), window.location.reload();
-                    }}
-                  >
-                    SET BALANCE
-                  </Button>
-                </th>
-              </tr>
-            );
-          })}
-      </table>
+          {allUsers &&
+            allUsers.map((item) => {
+              let { _id, name, email, phone, balance } = item;
+              return (
+                <tr>
+                  {/* <th>{_id}</th> */}
+                  <th>{name}</th>
+                  <th>{email}</th>
+                  <th>+1{phone}</th>
+                  <th>${balance}</th>
+                  {/* <th> */}
+                  {/* <TextField
+                      id="outlined-number"
+                      label="Amount in $"
+                      type="number"
+                      // InputLabelProps={{
+                      //   shrink: true,
+                      // }}
+                      // inputProps={{ min: 4, max: 10 }}
+                      onChange={amountHandler}
+                      // InputProps={{ inputProps: { min: 0, max: 10 } }}
+                    /> */}
+                  {/* </th> */}
+                  <th>
+                    <Button
+                      variant="outlined"
+                      color="primary"
+                      disabled={amount <= 0 || amount > 1000}
+                      // style={{ color: "white", backgroundColor: "#e62828" }}
+                      onClick={() => {
+                        addBalanceHandler(_id), window.location.reload();
+                      }}
+                    >
+                      SET BALANCE
+                    </Button>
+                  </th>
+                </tr>
+              );
+            })}
+        </table>
+      </div>
       <div>
-        <p style={{ color: "red", textAlign: "center" }}>
+        <p
+          style={{
+            color: "red",
+            textAlign: "center",
+            position: "relative",
+            bottom: "32rem",
+            // left: "6rem",
+            right: "-8rem",
+          }}
+        >
           Note: Amount should be between $1-$1000
         </p>
+        <TextField
+          variant="outlined"
+          id="outlined-number"
+          label="Amount in $"
+          type="number"
+          // InputLabelProps={{
+          //   shrink: true,
+          // }}
+          // inputProps={{ min: 4, max: 10 }}
+          onChange={amountHandler}
+          // InputProps={{ inputProps: { min: 0, max: 10 } }}
+          style={{
+            position: "relative",
+            bottom: "38rem",
+            // left: "6rem",
+            left: "47rem",
+          }}
+        />
       </div>
-    </div>
+    </>
   );
 };
 

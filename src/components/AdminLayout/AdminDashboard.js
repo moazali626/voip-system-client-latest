@@ -45,9 +45,7 @@ const AdminDashboard = () => {
         <div className={AdminDashboardCSS.container}>
           <div className={AdminDashboardCSS.sidebar}>
             <div className={AdminDashboardCSS.logo}>
-              <Link to="/">
-                <img src={Logo} alt="logo" />
-              </Link>
+              <img src={Logo} alt="logo" />
             </div>
             <Divider />
             <div className={AdminDashboardCSS["profile-information"]}>

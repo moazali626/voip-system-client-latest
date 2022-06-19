@@ -40,27 +40,29 @@ const inbox = () => {
 
   return (
     <div className={inboxCSS.container}>
-      <table>
-        <tr>
-          <th>To</th>
-          <th>From</th>
-          <th>Message</th>
-          <th>Date & Time</th>
-        </tr>
+      <div>
+        <table>
+          <tr>
+            <th>To</th>
+            <th>From</th>
+            <th>Message</th>
+            <th>Date & Time</th>
+          </tr>
 
-        {receivedSms &&
-          receivedSms.map((item) => {
-            let { to, from, body, date } = item;
-            return (
-              <tr>
-                <th>{to}</th>
-                <th>{from}</th>
-                <th>{body}</th>
-                <th>{date}</th>
-              </tr>
-            );
-          })}
-      </table>
+          {receivedSms &&
+            receivedSms.map((item) => {
+              let { to, from, body, date } = item;
+              return (
+                <tr>
+                  <th>{to}</th>
+                  <th>{from}</th>
+                  <th>{body}</th>
+                  <th>{date}</th>
+                </tr>
+              );
+            })}
+        </table>
+      </div>
     </div>
   );
 };

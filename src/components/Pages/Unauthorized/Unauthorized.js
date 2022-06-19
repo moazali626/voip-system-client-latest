@@ -14,15 +14,6 @@ const Unauthorized = () => {
         style={{ marginBottom: "1rem" }}
       />
       <h2 style={{ marginBottom: "1rem" }}>Access Denied</h2>
-      <Link to="/login">
-        <Button
-          variant="outlined"
-          color="secondary"
-          style={{ padding: "1rem 2rem" }}
-        >
-          Go To Login
-        </Button>
-      </Link>
     </div>
   );
 };

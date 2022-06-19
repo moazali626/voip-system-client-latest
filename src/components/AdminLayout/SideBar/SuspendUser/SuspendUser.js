@@ -68,7 +68,15 @@ const SuspendUser = () => {
   };
 
   return (
-    <div className={SuspendUserCSS.container}>
+    <div
+      className={SuspendUserCSS.container}
+      style={{
+        overflow: "scroll",
+        height: "320px",
+        width: "1100px",
+        overflow: "auto",
+      }}
+    >
       <table>
         <tr>
           <th>User ID</th>

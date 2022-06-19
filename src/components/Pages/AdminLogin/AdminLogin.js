@@ -40,7 +40,7 @@ const AdminLogin = () => {
         localStorage.setItem("jwt", user.data.token);
         localStorage.setItem("name", user.data.user.name);
 
-        window.location = "/admin-dashboard";
+        window.location = "/add-balance";
       }
     } catch (e) {
       console.log(e);

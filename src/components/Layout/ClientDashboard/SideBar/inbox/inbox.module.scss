@@ -1,7 +1,11 @@
 .container {
+  width: 1000px;
   position: absolute;
-  left: 22.5%;
-  bottom: 50%;
+  left: 25.5%;
+  bottom: 35%;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
 }
 table {
   font-family: arial, sans-serif;

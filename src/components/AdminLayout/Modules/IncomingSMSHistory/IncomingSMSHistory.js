@@ -21,7 +21,15 @@ const IncomingSMSHistory = () => {
   }
 
   return (
-    <div className={IncomingSMSHistoryCSS.container}>
+    <div
+      className={IncomingSMSHistoryCSS.container}
+      style={{
+        overflow: "scroll",
+        height: "300px",
+        width: "1100px",
+        overflow: "auto",
+      }}
+    >
       <table>
         <tr>
           <th>To</th>

@@ -14,10 +14,7 @@ const {
 } = require("@azure/storage-blob");
 
 const isBalance = localStorage.getItem("balance");
-
 const isLoggedIn = localStorage.getItem("jwt");
-
-const phone = localStorage.getItem("phone");
 
 const Call = () => {
   const [uploading, setUploading] = useState(null);
