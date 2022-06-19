@@ -23,7 +23,7 @@ import { Link } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 import SmsAlert from "../../UI/SmsAlert/SmsAlert";
 import { id } from "date-fns/locale";
-import CallMenu from "../../Modules/CallMenu/CallMenu";
+// import CallMenu from "../../Modules/CallMenu/CallMenu";
 
 const userId = localStorage.getItem("id");
 

@@ -45,6 +45,7 @@ import ConvertToMP3 from "./components/Modules/ConvertToMP3/ConvertToMP3";
 import ReceiveCall from "./components/Modules/ReceiveCall/ReceiveCall";
 import Dialer from "./components/Modules/MakeCall/public/dialer.jsx";
 import PaymentCheck from "./components/Modules/PaymentCheck/PaymentCheck";
+import MassDialerBill from "./components/Pages/MassDialerBill/MassDialerBill";
 
 //admin dashboard imports
 
@@ -109,6 +110,7 @@ const App = () => {
             <Route path="/broadcast" component={Broadcast} />
             <Route path="/payment-check" component={PaymentCheck} />
             <Route path="/unauthorized" component={Unauthorized} />
+            <Route path="/mass-dialer-bill" component={MassDialerBill} />
             {/* <Route path="/" component={Dummy} /> */}
             <Route exact component={LandingPage} />
             <Route path="*" component={NotFound} />

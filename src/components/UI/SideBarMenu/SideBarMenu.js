@@ -140,7 +140,7 @@ const SelectedListItem = ({ selectedIndexInfo, setSelectedIndexInfo }) => {
               <ListItemText primary="Mass Dialer" style={{ color: "black" }} />
             </ListItem>
 
-            <ListItem
+            {/* <ListItem
               button
               selected={selectedIndexInfo === 5}
               onClick={(event) => handleListItemClick(event, 5)}
@@ -166,7 +166,7 @@ const SelectedListItem = ({ selectedIndexInfo, setSelectedIndexInfo }) => {
                 primary="Support Center"
                 style={{ color: "black" }}
               />
-            </ListItem>
+            </ListItem> */}
           </div>
         </List>
       </div>
