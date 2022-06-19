@@ -4,9 +4,11 @@ import MassDialerCSS from "./MassDialer.module.scss";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import InsufficientBalanceMass from "../../../../Pages/InsufficientBalanceMass.js/InsufficientBalanceMass";
+import PhoneNotAvailableMass from "../../../../Pages/PhoneNotAvailableMass/PhoneNotAvailableMass";
+import errorImg from "../../../../../images/error.png";
 
 const isBalance = localStorage.getItem("balance");
-
+const isPhone = localStorage.getItem("phone");
 const isLoggedIn = localStorage.getItem("jwt");
 
 const MassDialer = () => {
@@ -18,8 +20,16 @@ const MassDialer = () => {
 
   return (
     <div className={MassDialerCSS.container}>
-      {isBalance == 0 ? (
+      {isBalance <= 0 ? (
         <InsufficientBalanceMass />
+      ) : !isPhone ? (
+        // <div style={{ textAlign: "center" }}>
+        //   <img src={errorImg} alt="" width="150px" />
+        //   <h3 style={{ marginTop: "1rem" }}>
+        //     You must have active phone number
+        //   </h3>
+        // </div>
+        <PhoneNotAvailableMass />
       ) : (
         <div className={MassDialerCSS.wrapper}>
           <p

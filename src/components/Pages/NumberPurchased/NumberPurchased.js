@@ -20,7 +20,7 @@ const NumberPurchased = () => {
       <div>
         <p>Virtual Number has been purchased successfully</p>
       </div>
-      <Link to="/">
+      <Link to="/inbox">
         <Button variant="outlined" color="primary" value="1">
           GO BACK TO HOMEPAGE
         </Button>

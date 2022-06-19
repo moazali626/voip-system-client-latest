@@ -3,6 +3,8 @@ var createReactClass = require("create-react-class");
 import "./dialer.css";
 // import "bootstrap/dist/css/bootstrap.min.css";
 import CallIcon from "@mui/icons-material/Call";
+import InsufficientBalanceLiveCall from "../../../Pages/InsufficientBalanceLiveCall/InsufficientBalanceLiveCall";
+import PhoneNotAvailableLiveCall from "../../../Pages/PhoneNotAvailableLiveCall/PhoneNotAvailableLiveCall";
 
 var NumberInputText = createReactClass({
   render: function () {
@@ -226,6 +228,9 @@ var DTMFTone = createReactClass({
   },
 });
 
+const isBalance = localStorage.getItem("balance");
+const isPhone = localStorage.getItem("phone");
+
 var DialerApp = createReactClass({
   getInitialState() {
     return {
@@ -324,39 +329,48 @@ var DialerApp = createReactClass({
     var self = this;
 
     return (
-      <div id="dialer">
-        <div id="dial-form" className="input-group input-group-sm">
-          {/* <CountrySelectBox
+      // isBalance
+      <>
+        {isBalance <= 0 ? (
+          <InsufficientBalanceLiveCall />
+        ) : !isPhone ? (
+          <PhoneNotAvailableLiveCall />
+        ) : (
+          <div id="dialer">
+            <div id="dial-form" className="input-group input-group-sm">
+              {/* <CountrySelectBox
             countries={this.state.countries}
             countryCode={this.state.countryCode}
             handleOnChange={this.handleChangeCountryCode}
           /> */}
 
-          <NumberInputText
-            currentNumber={this.state.currentNumber}
-            handleOnChange={this.handleChangeNumber}
-          />
-        </div>
+              <NumberInputText
+                currentNumber={this.state.currentNumber}
+                handleOnChange={this.handleChangeNumber}
+              />
+            </div>
 
-        <div className="controls">
-          <CallButton
-            handleOnClick={this.handleToggleCall}
-            disabled={!this.state.isValidNumber}
-            onPhone={this.state.onPhone}
-          />
+            <div className="controls">
+              <CallButton
+                handleOnClick={this.handleToggleCall}
+                disabled={!this.state.isValidNumber}
+                onPhone={this.state.onPhone}
+              />
 
-          {this.state.onPhone ? (
-            <MuteButton
-              handleOnClick={this.handleToggleMute}
-              muted={this.state.muted}
-            />
-          ) : null}
-        </div>
+              {this.state.onPhone ? (
+                <MuteButton
+                  handleOnClick={this.handleToggleMute}
+                  muted={this.state.muted}
+                />
+              ) : null}
+            </div>
 
-        {this.state.onPhone ? <DTMFTone /> : null}
+            {this.state.onPhone ? <DTMFTone /> : null}
 
-        <LogBox text={this.state.log} />
-      </div>
+            <LogBox text={this.state.log} />
+          </div>
+        )}
+      </>
     );
   },
 });

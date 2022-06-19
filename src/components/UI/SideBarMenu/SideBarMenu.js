@@ -139,34 +139,6 @@ const SelectedListItem = ({ selectedIndexInfo, setSelectedIndexInfo }) => {
               </ListItemIcon>
               <ListItemText primary="Mass Dialer" style={{ color: "black" }} />
             </ListItem>
-
-            {/* <ListItem
-              button
-              selected={selectedIndexInfo === 5}
-              onClick={(event) => handleListItemClick(event, 5)}
-            >
-              <ListItemIcon>
-                <HelpIcon />
-              </ListItemIcon>
-              <ListItemText
-                primary="Documentation"
-                style={{ color: "black" }}
-              />
-            </ListItem>
-
-            <ListItem
-              button
-              selected={selectedIndexInfo === 6}
-              onClick={(event) => handleListItemClick(event, 6)}
-            >
-              <ListItemIcon>
-                <QuestionAnswerIcon />
-              </ListItemIcon>
-              <ListItemText
-                primary="Support Center"
-                style={{ color: "black" }}
-              />
-            </ListItem> */}
           </div>
         </List>
       </div>

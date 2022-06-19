@@ -18,8 +18,8 @@ const NoBalance = (props) => {
           </p>
         ) : (
           <p>
-            You don't have any credits in your account. Please topup your
-            account before using any of our services.
+            You don't have any credits in your account.
+            <p>Please topup your account before using any of our services.</p>
           </p>
         )}
         <Link to="/amount" style={{ textDecoration: "none" }}>

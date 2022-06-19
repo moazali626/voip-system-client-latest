@@ -183,7 +183,7 @@ const Signup = () => {
       }
 
       if (!user.data.error) {
-        window.location = "/client-dashboard";
+        window.location = "/inbox";
       }
     } catch (e) {
       console.log(e);

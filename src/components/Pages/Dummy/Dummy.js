@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const Dummy = () => {
-  return <div>Dummy</div>;
+  return <div>Loading...</div>;
 };
 
 export default Dummy;

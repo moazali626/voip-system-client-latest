@@ -86,7 +86,7 @@ export default function DialogSelect() {
       {}
       {isBalance < 1 ? (
         <NoBalance pageLocation={"BuyVirtualNumber"} />
-      ) : isPhoneExists != 0 ? (
+      ) : isPhoneExists ? (
         <OneActiveNumber />
       ) : (
         <div className={BuyVirtualNumberCSS.container}>

@@ -23,7 +23,7 @@ const SMS = () => {
     <div className={SMSCSS.container}>
       {isBalance == 0 ? (
         <NoBalance />
-      ) : isPhone == 0 ? (
+      ) : !isPhone ? (
         <PhoneNotAvailable />
       ) : (
         <SendSMS />

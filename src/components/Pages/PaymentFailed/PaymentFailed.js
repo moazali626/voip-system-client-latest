@@ -21,7 +21,7 @@ const PaymentFailed = () => {
           <p>
             <b>Reason: </b> User cancelled the deposit request.
           </p>
-          <Link to="/">
+          <Link to="/inbox" style={{ textDecoration: "none" }}>
             <Button variant="outlined" color="primary" value="1">
               GO BACK TO HOMEPAGE
             </Button>

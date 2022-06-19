@@ -8,6 +8,7 @@ import UploadFile from "../../../../Modules/UploadFile/UploadFile";
 import AppBar from "../../../../UI/AppBar/AppBar";
 import validator from "validator";
 import InsufficientBalance from "../../../../Pages/InsufficientBalance/InsufficientBalance";
+import PhoneNotAvailablePreCall from "../../../../Pages/PhoneNotAvailablePreCall/PhoneNotAvailablePreCall";
 
 const {
   BlobServiceClient,
@@ -16,6 +17,7 @@ const {
 
 const isBalance = localStorage.getItem("balance");
 const isLoggedIn = localStorage.getItem("jwt");
+const isPhone = localStorage.getItem("phone");
 
 const Call = () => {
   const [uploading, setUploading] = useState(null);
@@ -91,8 +93,10 @@ const Call = () => {
   return (
     <>
       <div className={CallCSS.container}>
-        {isBalance == 0 ? (
+        {isBalance <= 0 ? (
           <InsufficientBalance />
+        ) : !isPhone ? (
+          <PhoneNotAvailablePreCall />
         ) : (
           <div className={CallCSS.container}>
             <form
