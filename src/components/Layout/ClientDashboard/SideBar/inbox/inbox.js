@@ -39,7 +39,15 @@ const inbox = () => {
   }
 
   return (
-    <div className={inboxCSS.container}>
+    <div
+      className={inboxCSS.container}
+      style={{
+        overflow: "scroll",
+        height: "320px",
+        width: "1100px",
+        overflow: "auto",
+      }}
+    >
       <div>
         <table>
           <tr>

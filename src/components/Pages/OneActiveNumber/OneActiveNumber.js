@@ -11,7 +11,7 @@ const OneActiveNumber = () => {
         <img src={dollarImg} alt="dollar" width="200px" />
         <p>
           You already have an active virtual phone number.{" "}
-          <p style={{ color: "red", display: "inline" }}>
+          <p style={{ color: "red" }}>
             Each account is limited to only one virtual phone number.
           </p>{" "}
           {/* If you want to change or delete your phone number, please
@@ -30,7 +30,7 @@ const OneActiveNumber = () => {
           freely. */}
         </p>
 
-        <Link to="/" style={{ textDecoration: "none" }}>
+        <Link to="/inbox" style={{ textDecoration: "none" }}>
           <Button variant="outlined" color="primary" value="1">
             GO BACK TO HOMEPAGE
           </Button>

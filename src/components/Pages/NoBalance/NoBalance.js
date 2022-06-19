@@ -22,8 +22,7 @@ const NoBalance = (props) => {
             account before using any of our services.
           </p>
         )}
-
-        <Link to="/amount">
+        <Link to="/amount" style={{ textDecoration: "none" }}>
           <Button variant="outlined" color="primary" value="1">
             ADD BALANCE
           </Button>

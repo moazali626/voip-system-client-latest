@@ -3,6 +3,7 @@ import NoBalance from "../../../../Pages/NoBalance/NoBalance";
 import MassDialerCSS from "./MassDialer.module.scss";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
+import InsufficientBalanceMass from "../../../../Pages/InsufficientBalanceMass.js/InsufficientBalanceMass";
 
 const isBalance = localStorage.getItem("balance");
 
@@ -18,7 +19,7 @@ const MassDialer = () => {
   return (
     <div className={MassDialerCSS.container}>
       {isBalance == 0 ? (
-        <NoBalance />
+        <InsufficientBalanceMass />
       ) : (
         <div className={MassDialerCSS.wrapper}>
           <p

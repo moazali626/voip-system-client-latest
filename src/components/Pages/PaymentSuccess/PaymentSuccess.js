@@ -37,7 +37,7 @@ const PaymentSuccess = () => {
           <p>
             Amount: <b>${topupAmount}</b>
           </p>
-          <Link to="/" style={{ textDecoration: "none" }}>
+          <Link to="/inbox" style={{ textDecoration: "none" }}>
             <Button variant="outlined" color="primary" value="1">
               GO BACK TO HOMEPAGE
             </Button>

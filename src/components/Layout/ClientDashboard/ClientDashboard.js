@@ -105,7 +105,7 @@ const ClientDashboard = () => {
         <div className={ClientDashboardCSS.container}>
           <div className={ClientDashboardCSS.sidebar}>
             <div className={ClientDashboardCSS.logo}>
-              <Link to="/">
+              <Link to="/inbox">
                 <img src={Logo} alt="logo" />
               </Link>
             </div>

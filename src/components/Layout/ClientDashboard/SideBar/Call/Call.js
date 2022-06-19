@@ -7,6 +7,7 @@ import axios from "axios";
 import UploadFile from "../../../../Modules/UploadFile/UploadFile";
 import AppBar from "../../../../UI/AppBar/AppBar";
 import validator from "validator";
+import InsufficientBalance from "../../../../Pages/InsufficientBalance/InsufficientBalance";
 
 const {
   BlobServiceClient,
@@ -91,7 +92,7 @@ const Call = () => {
     <>
       <div className={CallCSS.container}>
         {isBalance == 0 ? (
-          <NoBalance />
+          <InsufficientBalance />
         ) : (
           <div className={CallCSS.container}>
             <form
