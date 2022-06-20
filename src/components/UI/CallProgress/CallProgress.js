@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Step } from "semantic-ui-react";
-// import "semantic-ui-css/semantic.min.css";
+import "semantic-ui-css/semantic.min.css";
 import CallProgressCSS from "./CallProgress.module.scss";
 import socket from "../../../utils/SocketIo";
 
