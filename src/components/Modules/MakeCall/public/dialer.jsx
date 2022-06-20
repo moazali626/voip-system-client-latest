@@ -240,20 +240,20 @@ var DialerApp = createReactClass({
       countryCode: "1",
       currentNumber: "",
       isValidNumber: false,
-      // countries: [
-      //   { name: "United States", cc: "1", code: "us" },
-      //   { name: "Great Britain", cc: "44", code: "gb" },
-      //   { name: "Colombia", cc: "57", code: "co" },
-      //   { name: "Ecuador", cc: "593", code: "ec" },
-      //   { name: "Estonia", cc: "372", code: "ee" },
-      //   { name: "Germany", cc: "49", code: "de" },
-      //   { name: "Hong Kong", cc: "852", code: "hk" },
-      //   { name: "Ireland", cc: "353", code: "ie" },
-      //   { name: "Singapore", cc: "65", code: "sg" },
-      //   { name: "Spain", cc: "34", code: "es" },
-      //   { name: "Brazil", cc: "55", code: "br" },
-      //   { name: "Pakistan", cc: "92", code: "pk" },
-      // ],
+      countries: [
+        { name: "United States", cc: "1", code: "us" },
+        { name: "Great Britain", cc: "44", code: "gb" },
+        { name: "Colombia", cc: "57", code: "co" },
+        { name: "Ecuador", cc: "593", code: "ec" },
+        { name: "Estonia", cc: "372", code: "ee" },
+        { name: "Germany", cc: "49", code: "de" },
+        { name: "Hong Kong", cc: "852", code: "hk" },
+        { name: "Ireland", cc: "353", code: "ie" },
+        { name: "Singapore", cc: "65", code: "sg" },
+        { name: "Spain", cc: "34", code: "es" },
+        { name: "Brazil", cc: "55", code: "br" },
+        { name: "Pakistan", cc: "92", code: "pk" },
+      ],
     };
   },
 
@@ -314,8 +314,8 @@ var DialerApp = createReactClass({
       });
       // make outbound call with current number
       var n =
-        "+" +
-        this.state.countryCode +
+        // "+" +
+        // this.state.countryCode +
         this.state.currentNumber.replace(/\D/g, "");
       Twilio.Device.connect({ number: n });
       this.setState({ log: "Calling " + n });
@@ -339,10 +339,10 @@ var DialerApp = createReactClass({
           <div id="dialer">
             <div id="dial-form" className="input-group input-group-sm">
               {/* <CountrySelectBox
-            countries={this.state.countries}
-            countryCode={this.state.countryCode}
-            handleOnChange={this.handleChangeCountryCode}
-          /> */}
+                countries={this.state.countries}
+                countryCode={this.state.countryCode}
+                handleOnChange={this.handleChangeCountryCode}
+              /> */}
 
               <NumberInputText
                 currentNumber={this.state.currentNumber}

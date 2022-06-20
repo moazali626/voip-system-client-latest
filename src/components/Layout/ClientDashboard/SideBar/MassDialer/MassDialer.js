@@ -60,6 +60,10 @@ const MassDialer = () => {
               Convert Text To Speech
             </Button>
           </Link>
+          <p style={{ textAlign: "center", marginTop: "1rem" }}>
+            You will be charged <span style={{ color: "red" }}>$0.00083</span>{" "}
+            per second
+          </p>
         </div>
       )}
     </div>

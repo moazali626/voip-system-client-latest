@@ -36,22 +36,34 @@ const Navbar = () => {
                 style={{ marginRight: "0.5rem" }}
                 className={NavbarCSS.logo}
               />
-              <p style={{ float: "right", marginTop: "0.1rem" }}>VoIP System</p>
+              <p
+                style={{ float: "right", marginTop: "0.1rem", color: "white" }}
+              >
+                VoIP System
+              </p>
             </a>
           </div>
           <ul className={NavbarCSS["nav-links"]}>
             <a href="#products">
-              <li className={NavbarCSS["cool-link"]}>Products</li>
+              <li className={NavbarCSS["cool-link"]} style={{ color: "white" }}>
+                Products
+              </li>
             </a>
 
             <a href="#solutions">
-              <li className={NavbarCSS["cool-link"]}>Solutions</li>
+              <li className={NavbarCSS["cool-link"]} style={{ color: "white" }}>
+                Solutions
+              </li>
             </a>
             <a href="#pricing">
-              <li className={NavbarCSS["cool-link"]}>Pricing</li>
+              <li className={NavbarCSS["cool-link"]} style={{ color: "white" }}>
+                Pricing
+              </li>
             </a>
             <a href="#contact">
-              <li className={NavbarCSS["cool-link"]}>Contact</li>
+              <li className={NavbarCSS["cool-link"]} style={{ color: "white" }}>
+                Contact
+              </li>
             </a>
           </ul>
           {!isLoggedIn ? (
