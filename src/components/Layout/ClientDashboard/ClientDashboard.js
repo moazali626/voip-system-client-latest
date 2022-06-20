@@ -23,6 +23,7 @@ import { Link } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 import SmsAlert from "../../UI/SmsAlert/SmsAlert";
 import { id } from "date-fns/locale";
+import ReceiveCall from "../../Modules/ReceiveCall/ReceiveCall";
 // import CallMenu from "../../Modules/CallMenu/CallMenu";
 
 const userId = localStorage.getItem("id");
@@ -155,6 +156,7 @@ const ClientDashboard = () => {
           {selectedIndex == 2.5 && <Redirect to="/make-call"></Redirect>}
           {selectedIndex == 3 && <Redirect to="/call"></Redirect>}
           {selectedIndex == 4 && <Redirect to="/mass-dialer"></Redirect>}
+          {selectedIndex == 4.5 && <Redirect to="/receive-a-call"></Redirect>}
           {selectedIndex == 5 && <Redirect to="/documentation"></Redirect>}
           {selectedIndex == 6 && <Redirect to="/support-center"></Redirect>}
         </div>

@@ -18,6 +18,7 @@ import AudiotrackIcon from "@mui/icons-material/Audiotrack";
 import { Link } from "react-router-dom";
 import SidebarCSS from "./SidebarMenu.module.scss";
 import { Redirect } from "react-router";
+import CallReceivedIcon from "@mui/icons-material/CallReceived";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -79,7 +80,7 @@ const SelectedListItem = ({ selectedIndexInfo, setSelectedIndexInfo }) => {
               </ListItemIcon>
               <ListItemText primary="TopUp" style={{ color: "black" }} />
             </ListItem>
-            <ListItem
+            {/* <ListItem
               button
               selected={selectedIndexInfo === 1}
               onClick={(event) => handleListItemClick(event, 1)}
@@ -88,7 +89,7 @@ const SelectedListItem = ({ selectedIndexInfo, setSelectedIndexInfo }) => {
                 <AccountCircleIcon />
               </ListItemIcon>
               <ListItemText primary="Edit Profile" style={{ color: "black" }} />
-            </ListItem>
+            </ListItem> */}
 
             <ListItem
               button
@@ -138,6 +139,16 @@ const SelectedListItem = ({ selectedIndexInfo, setSelectedIndexInfo }) => {
                 <DialpadIcon />
               </ListItemIcon>
               <ListItemText primary="Mass Dialer" style={{ color: "black" }} />
+            </ListItem>
+            <ListItem
+              button
+              selected={selectedIndexInfo === 4.5}
+              onClick={(event) => handleListItemClick(event, 4.5)}
+            >
+              <ListItemIcon>
+                <CallReceivedIcon />
+              </ListItemIcon>
+              <ListItemText primary="Receive call" style={{ color: "black" }} />
             </ListItem>
           </div>
         </List>

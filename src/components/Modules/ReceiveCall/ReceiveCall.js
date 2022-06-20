@@ -67,9 +67,17 @@ const ReceiveCall = () => {
 
   return (
     <div>
-      {calls.calls.map((call) => (
-        <CallProgress call={call} />
-      ))}
+      {calls.calls.length <= 0 ? (
+        <h1 style={{ position: "relative", left: "38rem", bottom: "25rem" }}>
+          Listening for incoming call...
+        </h1>
+      ) : (
+        <div>
+          {calls.calls.map((call) => (
+            <CallProgress call={call} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

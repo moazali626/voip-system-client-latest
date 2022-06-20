@@ -111,6 +111,11 @@ const MenuListComposition = () => {
                   >
                     {/* <MenuItem onClick={handleClose}>Edit Profile</MenuItem> */}
                     {/* <MenuItem onClick={handleClose}>FAQ</MenuItem> */}
+                    <MenuItem
+                      onClick={() => (window.location = "/edit-profile")}
+                    >
+                      Edit profile
+                    </MenuItem>
                     <MenuItem onClick={(handleClose, logOut)}>Logout</MenuItem>
                   </MenuList>
                 </ClickAwayListener>
