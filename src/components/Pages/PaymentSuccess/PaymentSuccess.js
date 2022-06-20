@@ -11,20 +11,24 @@ const topupAmount = localStorage.getItem("topup");
 let balanceToBeUpdated = localStorage.getItem("topup");
 
 const PaymentSuccess = () => {
-  const [load, setLoad] = useState(false);
+  // const [load, setLoad] = useState(false);
 
   useEffect(() => {
     if (!isLoggedIn) {
       window.location = "/unauthorized";
     }
+    // if (load == "false") {
+    //   setLoad(true);
+    //   window.location.reload();
+    // }
   }, []);
 
-  // window.onload = function () {
-  //   if (!localStorage.justOnce) {
-  //     localStorage.setItem("justOnce", "true");
-  //     window.location.reload();
-  //   }
-  // };
+  window.onload = function () {
+    if (!localStorage.justOnce) {
+      localStorage.setItem("justOnce", "true");
+      window.location.reload();
+    }
+  };
 
   return (
     <div className={PaymentSuccessCSS.container}>
@@ -38,7 +42,12 @@ const PaymentSuccess = () => {
             Amount: <b>${topupAmount}</b>
           </p>
           <Link to="/inbox" style={{ textDecoration: "none" }}>
-            <Button variant="outlined" color="primary" value="1">
+            <Button
+              variant="outlined"
+              color="primary"
+              value="1"
+              // onClick={() => window.location.reload()}
+            >
               GO BACK TO HOMEPAGE
             </Button>
           </Link>
