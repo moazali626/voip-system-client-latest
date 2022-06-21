@@ -215,7 +215,7 @@ const Signup = () => {
             <div className={SignupCSS["name"]}>
               <TextField
                 label="Full Name"
-                variant="outlined"
+                variant="standard"
                 margin="dense"
                 style={{ height: 50, width: 280 }}
                 onChange={nameHandler}
@@ -231,7 +231,7 @@ const Signup = () => {
 
             <div className={SignupCSS["email"]}>
               <TextField
-                variant="outlined"
+                variant="standard"
                 label="Email"
                 margin="dense"
                 style={{ height: 50, width: 280 }}
@@ -248,7 +248,7 @@ const Signup = () => {
             {emailError && <p className={SignupCSS.error}>{error.email}</p>}
             <div className={SignupCSS["password"]}>
               <TextField
-                variant="outlined"
+                variant="standard"
                 label="Password"
                 type="password"
                 margin="dense"
@@ -264,7 +264,7 @@ const Signup = () => {
             )}
             <div className={SignupCSS["confirm-password"]}>
               <TextField
-                variant="outlined"
+                variant="standard"
                 label="Confirm Password"
                 type="password"
                 autoComplete="current-password"

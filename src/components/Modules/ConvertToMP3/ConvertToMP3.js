@@ -44,7 +44,7 @@ const ConvertToMP3 = () => {
         <div>
           <TextField
             required
-            variant="outlined"
+            variant="standard"
             label="Enter text"
             inputProps={{
               style: {
@@ -82,7 +82,13 @@ const ConvertToMP3 = () => {
       </div>
       <div className={ConvetToMP3CSS.message}>
         {isConverting && (
-          <p style={{ color: "green", marginTop: "0.5rem" }}>
+          <p
+            style={{
+              color: "green",
+              marginTop: "1.5rem",
+              marginRight: "1.7rem",
+            }}
+          >
             Converting, Please wait...
           </p>
         )}

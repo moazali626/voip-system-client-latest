@@ -196,7 +196,7 @@ const Broadcast = () => {
                 style={{ marginTop: "15px" }}
                 id="outlined-basic"
                 label="Phone numbers separated by comma"
-                variant="outlined"
+                variant="standard"
                 fullWidth
                 inputRef={recipientRef}
                 required

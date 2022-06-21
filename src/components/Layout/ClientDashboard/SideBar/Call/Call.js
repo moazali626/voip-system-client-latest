@@ -112,7 +112,7 @@ const Call = () => {
                     style={{ marginTop: "15px" }}
                     id="outlined-basic"
                     label="Sender phone number"
-                    variant="outlined"
+                    variant="standard"
                     fullWidth
                     onChange={recipientHandler}
                     required

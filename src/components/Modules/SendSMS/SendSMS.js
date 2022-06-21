@@ -132,7 +132,7 @@ const SendSMS = () => {
               style={textStyle}
               id="outlined-basic"
               label="Recipient phone number"
-              variant="outlined"
+              variant="standard"
               fullWidth
               // type="number"
               onChange={recipientHandler}
@@ -151,7 +151,7 @@ const SendSMS = () => {
               id="outlined-textarea"
               label="Message"
               multiline
-              variant="outlined"
+              variant="standard"
               width="400px"
               fullWidth
               onChange={(e) => {

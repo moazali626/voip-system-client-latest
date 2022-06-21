@@ -131,7 +131,7 @@ const AddBalance = () => {
           Note: Amount should be between $1-$1000
         </p>
         <TextField
-          variant="outlined"
+          variant="standard"
           id="outlined-number"
           label="Amount in $"
           type="number"

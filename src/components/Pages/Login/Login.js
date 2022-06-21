@@ -61,7 +61,7 @@ const Login = () => {
             <TextField
               id="standard-basic"
               label="Email"
-              variant="outlined"
+              variant="standard"
               margin="dense"
               style={{ height: 50, width: 280 }}
               required
@@ -74,7 +74,7 @@ const Login = () => {
               label="Password"
               type="password"
               autoComplete="current-password"
-              variant="outlined"
+              variant="standard"
               margin="dense"
               style={{ width: 280, marginBottom: "1.5rem" }}
               required
