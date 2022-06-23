@@ -5,13 +5,10 @@ import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import CredientialWrapper from "../../UI/CredientialWrapper/CredientialWrapper";
-// import { ProfileContext } from "../../context/ProfileContext/ProfileContext";
 
 const Login = () => {
   const [isValidLogin, setIsValidLogin] = useState(false);
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
-
-  // const [profileInfo, setProfileInfo] = useContext(ProfileContext);
 
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -31,10 +28,6 @@ const Login = () => {
         setIsValidLogin(false);
       } else {
         setIsValidLogin(true);
-        // setProfileInfo({
-        //   name: user.data.user.name,
-        //   balance: user.data.user.balance,
-        // });
 
         localStorage.setItem("id", user.data.user._id);
         localStorage.setItem("email", user.data.user.email);
@@ -86,11 +79,6 @@ const Login = () => {
               Email or Password is Incorrect
             </p>
           )}
-          {/* <div className={LoginCSS["password-reset"]}>
-            <Link to="/reset-password">
-              <p style={{ color: "black" }}>Forget Password?</p>
-            </Link>
-          </div> */}
           <Button
             className={LoginCSS["login-page-btn"]}
             variant="contained"

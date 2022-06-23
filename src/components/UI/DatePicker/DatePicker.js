@@ -6,10 +6,6 @@ export default function NativePickers() {
   const dateHandler = (e) => {
     const date = e.target.value;
     const seconds = Date.parse(date) / 1000;
-    // const seconds = date.getTime() / 1000;
-
-    console.log("Date: ", date);
-    console.log("Seconds: ", seconds);
   };
 
   return (

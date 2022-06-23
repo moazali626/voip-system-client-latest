@@ -68,15 +68,10 @@ export default function DialogSelect() {
       },
     });
 
-    //Updating Balance in dashboard/localstorage
     const currentBalance = localStorage.getItem("balance");
     localStorage.setItem("balance", currentBalance - 1);
-
-    //To block access to "buy virtual number" after purchase of 1 number
     localStorage.setItem("number", "active");
     localStorage.setItem("phone", number);
-
-    //Redirecting after successfull number purchase
     window.location.href = "/number-purchased";
     console.log("ended");
   };
@@ -91,11 +86,7 @@ export default function DialogSelect() {
       ) : (
         <div className={BuyVirtualNumberCSS.container}>
           <div>
-            <img
-              //   style={{ marginTop: "21rem" }}
-              src={VirtualNumberImg}
-              alt="virtual phone number"
-            />
+            <img src={VirtualNumberImg} alt="virtual phone number" />
           </div>
           <Button
             style={{ border: "2px solid #303F9F" }}

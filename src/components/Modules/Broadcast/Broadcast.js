@@ -19,7 +19,6 @@ const isBalance = localStorage.getItem("balance");
 const isLoggedIn = localStorage.getItem("jwt");
 
 const phone = localStorage.getItem("phone");
-// localStorage.setItem("duration", 0);
 
 const Broadcast = () => {
   const [selectedFile, setSelectedFile] = useState();
@@ -45,9 +44,6 @@ const Broadcast = () => {
       console.log("Original CallBack Status Data", data);
       setCallBackStatus(data);
       if (data.CallDuration && phoneNumbers.length == 0) {
-        console.log("Length", phoneNumbers.length);
-        console.log("binary if ran");
-        // setTotalCallDuration(data.CallDuration);
         localStorage.setItem("duration", data.CallDuration);
       }
       if (data.CallStatus == "completed") {
@@ -71,12 +67,8 @@ const Broadcast = () => {
                 const length = localStorage.getItem("length");
                 const totalCostInSeconds = duration * length;
                 setTotalCost(totalCostInSeconds);
-                // console.log("redirect if ran");
-                // window.location = "/mass-dialer-bill";
                 console.log("all done");
               }
-
-              // <Redirect to="/mass-dialer-bill" bill="$100" />;
               return false;
             }
           };
@@ -84,7 +76,6 @@ const Broadcast = () => {
         }, 5000);
       } else {
         console.log("red flag");
-        // console.log("else ran");
       }
     });
     if (phoneNumbers.length > 0) {
@@ -114,14 +105,11 @@ const Broadcast = () => {
   }, [phoneNumbers]);
 
   useEffect(() => {
-    console.log("Removing USEEFFECT STATEMENTS");
     localStorage.removeItem("duration");
     localStorage.removeItem("length");
   }, []);
 
   const recipientRef = useRef();
-
-  // const { register, handleSubmit } = useForm();
 
   const onSubmit = async () => {
     localStorage.setItem("fileName", selectedFile.name);

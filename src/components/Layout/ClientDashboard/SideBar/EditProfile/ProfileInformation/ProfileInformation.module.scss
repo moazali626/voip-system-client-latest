@@ -1,10 +1,10 @@
 .container {
   height: 70vh;
   width: 40vw;
-  position: absolute; /* Important */
-  top: 50%; /* Position Y halfway in */
-  left: 58%; /* Position X halfway in */
-  transform: translate(-50%, -50%); /* Move it halfway back(x,y) */
+  position: absolute;
+  top: 50%;
+  left: 58%;
+  transform: translate(-50%, -50%);
 }
 .wrapper {
   display: flex;

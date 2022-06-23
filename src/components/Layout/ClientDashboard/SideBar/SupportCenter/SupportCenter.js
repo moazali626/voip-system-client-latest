@@ -13,7 +13,6 @@ const SupportCenter = () => {
   }, []);
   return (
     <div className={SupportCenterCSS.container}>
-      {/* <ContactBtn /> */}
       <FAQ />
     </div>
   );

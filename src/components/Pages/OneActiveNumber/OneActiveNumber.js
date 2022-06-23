@@ -14,20 +14,6 @@ const OneActiveNumber = () => {
           <p style={{ color: "red" }}>
             Each account is limited to only one virtual phone number.
           </p>{" "}
-          {/* If you want to change or delete your phone number, please
-          <Link to="/support-center">
-            {" "}
-            <p
-              style={{
-                display: "inline",
-                textDecoration: "none",
-                color: "blue",
-              }}
-            >
-              contact us
-            </p>{" "}
-          </Link>
-          freely. */}
         </p>
 
         <Link to="/inbox" style={{ textDecoration: "none" }}>

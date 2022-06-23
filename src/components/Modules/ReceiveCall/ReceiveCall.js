@@ -30,10 +30,6 @@ const ReceiveCall = () => {
         draft.calls.push({ CallSid, CallStatus, From });
       });
     });
-    // socket.on("call-status-changed", (data) => {
-    //   console.log(data.data.status);
-    //   setCall(data.data.status);
-    // });
     socket.on("twilio-token", (data) => {
       console.log("Received Token from the backend");
       console.log(data.token);
@@ -60,10 +56,6 @@ const ReceiveCall = () => {
       connection.accept();
     });
   }
-
-  // const answerCall = (sid) => {
-  //   socket.emit("answer-call", { sid });
-  // };
 
   return (
     <div>

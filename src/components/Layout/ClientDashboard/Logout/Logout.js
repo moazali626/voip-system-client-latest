@@ -44,7 +44,6 @@ const MenuListComposition = () => {
     }
   }
 
-  // return focus to the button when we transitioned from !open -> open
   const prevOpen = React.useRef(open);
   React.useEffect(() => {
     if (prevOpen.current === true && open === false) {
@@ -109,8 +108,6 @@ const MenuListComposition = () => {
                     id="menu-list-grow"
                     onKeyDown={handleListKeyDown}
                   >
-                    {/* <MenuItem onClick={handleClose}>Edit Profile</MenuItem> */}
-                    {/* <MenuItem onClick={handleClose}>FAQ</MenuItem> */}
                     <MenuItem
                       onClick={() => (window.location = "/edit-profile")}
                     >

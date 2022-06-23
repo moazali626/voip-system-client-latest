@@ -16,13 +16,10 @@ const Payment = (props) => {
     }
   }, []);
 
-  //Getting user entered balance from amount page
   const location = useLocation();
   const balanceAmount = location.state.value;
 
   const { selected, amount } = useContext(TopUpContext);
-  // const [selectedTopUpItem, setSelectedTopUpItem] = selected;
-  // const [topUpAmount, setTopUpAmount] = amount;
 
   const paymentHandler = async () => {
     const result = await axios.post("http://localhost:4000/payment", {
@@ -47,7 +44,6 @@ const Payment = (props) => {
               src={creditCardImg}
               width="200px"
               alt="card payment"
-              // onClick={() => setSelectedTopUpItem(2)}
               onClick={paymentHandler}
             />
           </div>

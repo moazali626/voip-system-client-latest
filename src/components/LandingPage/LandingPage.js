@@ -10,7 +10,6 @@ const isLoggedIn = localStorage.getItem("id");
 const LandingPage = () => {
   return (
     <>
-      {/* {!isLoggedIn ? ( */}
       <div>
         <Navbar />
         <HomePageWrapper />
@@ -18,9 +17,6 @@ const LandingPage = () => {
         <Contact />
         <Footer />
       </div>
-      {/* ) : (
-        <p></p>
-      )} */}
     </>
   );
 };

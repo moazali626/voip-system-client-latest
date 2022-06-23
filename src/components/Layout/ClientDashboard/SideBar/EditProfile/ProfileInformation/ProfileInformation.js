@@ -10,18 +10,12 @@ const localId = localStorage.getItem("id");
 
 const initial = {
   name: localName,
-  // nameIsValid: false,
-
   email: localEmail,
-  // emailIsValid: false,
-
   currentPassword: "",
   newPassword: "",
   confirmNewPassword: "",
-
   basicInfoSaved: "",
   passInfoSaved: "",
-  // profileError: "",
   passError: "",
 };
 
@@ -46,10 +40,7 @@ const ProfileInformation = () => {
     basicInfoSaved,
     passInfoSaved,
 
-    // profileError,
     passError,
-    // nameIsValid,
-    // emailIsValid,
   } = state;
 
   const newNameHandler = (e) => {
@@ -163,7 +154,7 @@ const ProfileInformation = () => {
           id={ProfileInformationCSS["full-name"]}
           className={ProfileInformationCSS["profile-info-wrapper"]}
           label="Full Name"
-          variant="outlined"
+          variant="standard"
           margin="dense"
           value={name}
           InputLabelProps={{ shrink: true }}
@@ -175,7 +166,7 @@ const ProfileInformation = () => {
           id={ProfileInformationCSS["email"]}
           className={ProfileInformationCSS["profile-info-wrapper"]}
           label="Email"
-          variant="outlined"
+          variant="standard"
           margin="dense"
           type="email"
           value={email}
@@ -183,10 +174,6 @@ const ProfileInformation = () => {
           InputLabelProps={{ shrink: true }}
           style={{ width: "100%", maxWidth: "320px" }}
         />
-
-        {/* {profileError && (
-          <p className={ProfileInformationCSS["error-msg"]}>{profileError}</p>
-        )} */}
 
         {basicInfoSaved && (
           <p className={ProfileInformationCSS["info-saved"]}>
@@ -214,11 +201,10 @@ const ProfileInformation = () => {
           id={ProfileInformationCSS["current-password"]}
           className={ProfileInformationCSS["profile-info-wrapper"]}
           label="Current Password"
-          variant="outlined"
+          variant="standard"
           margin="dense"
           type="password"
           onChange={(e) => {
-            // setCurrentPassword(e.target.value);
             dispatch({ type: "currentPassword", payload: e.target.value });
           }}
           style={{ width: "100%", maxWidth: "320px" }}
@@ -228,7 +214,7 @@ const ProfileInformation = () => {
           id={ProfileInformationCSS["new-password"]}
           className={ProfileInformationCSS["profile-info-wrapper"]}
           label="New Password"
-          variant="outlined"
+          variant="standard"
           margin="dense"
           type="password"
           onChange={(e) => {
@@ -241,7 +227,7 @@ const ProfileInformation = () => {
           id={ProfileInformationCSS["confirm-new-password"]}
           className={ProfileInformationCSS["profile-info-wrapper"]}
           label="Confirm New Password"
-          variant="outlined"
+          variant="standard"
           margin="dense"
           type="password"
           onChange={(e) => {

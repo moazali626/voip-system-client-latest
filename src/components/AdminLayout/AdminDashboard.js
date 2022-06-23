@@ -3,13 +3,10 @@ import AdminDashboardCSS from "./AdminDashboard.module.scss";
 import axios from "axios";
 import Unauthorized from "../Pages/Unauthorized/Unauthorized";
 import { Link, Redirect } from "react-router-dom";
-
 import Logo from "../../images/client-dashboard-logo.png";
 import Avatar from "../../images/user-avatar.png";
 import SelectedListItem from "../../components/UI/AdminSideBarMenu/AdminSideBarMenu";
 import Divider from "@material-ui/core/Divider";
-
-//issue duplicate code
 import MenuListComposition from "../Layout/ClientDashboard/Logout/Logout";
 
 const AdminDashboard = () => {
@@ -80,17 +77,14 @@ const AdminDashboard = () => {
               </p>
             )}
           </div>
-          {/* <div>
-            <SmsAlert />
-          </div> */}
           {selectedIndex == 0 && <Redirect to="/add-balance"></Redirect>}
           {selectedIndex == 1 && <Redirect to="/suspend-user"></Redirect>}
           {selectedIndex == 2 && (
             <Redirect to="/view-activity-usage"></Redirect>
           )}
+          {selectedIndex == 3 && <Redirect to="/get-inbox-messages"></Redirect>}
         </div>
       )}
-      {/* {!isAuthorized && isRequestCompleted && <Unauthorized />} */}
     </>
   );
 };

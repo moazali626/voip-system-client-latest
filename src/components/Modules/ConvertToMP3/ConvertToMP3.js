@@ -14,7 +14,6 @@ const ConvertToMP3 = () => {
     if (!textRef.current.value) {
       return;
     }
-    // console.log(textRef.current.value);
     setIsConverting(true);
     const text = textRef.current.value;
     await axios.post("http://localhost:4000/text-to-mp3", {
@@ -48,7 +47,6 @@ const ConvertToMP3 = () => {
             label="Enter text"
             inputProps={{
               style: {
-                // height: "100px",
                 width: "300px",
               },
             }}

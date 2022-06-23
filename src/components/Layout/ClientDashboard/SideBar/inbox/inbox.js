@@ -19,17 +19,12 @@ const inbox = () => {
 
   useEffect(() => {
     const getMessages = async () => {
-      //   setIsLoading(true);
       let result = await axios.get("http://localhost:4000/get-messages", {
         headers: {
           id: userId,
         },
       });
       setReceivedSms(result.data);
-      //   console.log("result", result.data);
-      //   console.log("ran", receivedSms);
-      //   console.log(receivedSms.data);
-      //   setIsLoading(false);
     };
     getMessages();
   }, []);

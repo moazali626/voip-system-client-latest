@@ -15,16 +15,12 @@ import MenuListComposition from "./Logout/Logout";
 import { TopUpContext } from "./SideBar/TopUp/Context/TopUpContext";
 import axios from "axios";
 import Unauthorized from "../../Pages/Unauthorized/Unauthorized";
-// import { ProfileContext } from "../../context/ProfileContext/ProfileContext";
 import SmsIcon from "@mui/icons-material/Sms";
-
 import { Link } from "react-router-dom";
-
 import { Redirect } from "react-router-dom";
 import SmsAlert from "../../UI/SmsAlert/SmsAlert";
 import { id } from "date-fns/locale";
 import ReceiveCall from "../../Modules/ReceiveCall/ReceiveCall";
-// import CallMenu from "../../Modules/CallMenu/CallMenu";
 
 const userId = localStorage.getItem("id");
 
@@ -33,13 +29,8 @@ let isFound;
 const ClientDashboard = () => {
   const [selectedIndex, setSelectedIndex] = useState(null);
   const { selected, amount } = useContext(TopUpContext);
-  // const [selectedTopUpItem, setSelectedTopUpItem] = selected;
-  // const [topUpAmount, setTopUpAmount] = amount;
   const [isAuthorized, setIsAuthorized] = useState(false);
   const [isRequestCompleted, setIsRequestCompleted] = useState(false);
-
-  // const [profileInfo, setProfileInfo] = useContext(ProfileContext);
-  // console.log(profileInfo);
 
   useEffect(() => {
     const isSuspended = async () => {
@@ -48,7 +39,6 @@ const ClientDashboard = () => {
           id: userId,
         },
       });
-      // console.log("isFound client", isFound.data._id);
       if (!isFound.data._id) {
         localStorage.removeItem("name");
         localStorage.removeItem("balance");
@@ -63,7 +53,6 @@ const ClientDashboard = () => {
     };
 
     const updatedBalance = async () => {
-      // console.log("updated", userId);
       const user = await axios.post("http://localhost:4000/get-profile", {
         headers: {
           id: userId,
@@ -161,7 +150,6 @@ const ClientDashboard = () => {
           {selectedIndex == 6 && <Redirect to="/support-center"></Redirect>}
         </div>
       )}
-      {/* {!isAuthorized && isRequestCompleted && <Unauthorized />} */}
     </>
   );
 };

@@ -80,16 +80,6 @@ const SelectedListItem = ({ selectedIndexInfo, setSelectedIndexInfo }) => {
               </ListItemIcon>
               <ListItemText primary="TopUp" style={{ color: "black" }} />
             </ListItem>
-            {/* <ListItem
-              button
-              selected={selectedIndexInfo === 1}
-              onClick={(event) => handleListItemClick(event, 1)}
-            >
-              <ListItemIcon>
-                <AccountCircleIcon />
-              </ListItemIcon>
-              <ListItemText primary="Edit Profile" style={{ color: "black" }} />
-            </ListItem> */}
 
             <ListItem
               button

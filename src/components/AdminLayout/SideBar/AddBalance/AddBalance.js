@@ -5,15 +5,10 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 
 let result;
-
-// const isLoggedIn = localStorage.getItem("jwt");
 const isBalanceAttribute = localStorage.getItem("name");
 
 const AddBalance = () => {
   useEffect(() => {
-    // if (!isLoggedIn) {
-    //   window.location = "/unauthorized";
-    // }
     if (isBalanceAttribute != "Admin") {
       localStorage.removeItem("jwt");
       localStorage.removeItem("id");
@@ -67,12 +62,10 @@ const AddBalance = () => {
       >
         <table>
           <tr>
-            {/* <th>User ID</th> */}
             <th>Name</th>
             <th>Email</th>
             <th>Associated Phone</th>
             <th>Balance</th>
-            {/* <th>Amount</th> */}
             <th>Action</th>
           </tr>
 
@@ -81,30 +74,15 @@ const AddBalance = () => {
               let { _id, name, email, phone, balance } = item;
               return (
                 <tr>
-                  {/* <th>{_id}</th> */}
                   <th>{name}</th>
                   <th>{email}</th>
                   <th>+1{phone}</th>
                   <th>${balance}</th>
-                  {/* <th> */}
-                  {/* <TextField
-                      id="outlined-number"
-                      label="Amount in $"
-                      type="number"
-                      // InputLabelProps={{
-                      //   shrink: true,
-                      // }}
-                      // inputProps={{ min: 4, max: 10 }}
-                      onChange={amountHandler}
-                      // InputProps={{ inputProps: { min: 0, max: 10 } }}
-                    /> */}
-                  {/* </th> */}
                   <th>
                     <Button
                       variant="outlined"
                       color="primary"
                       disabled={amount <= 0 || amount > 1000}
-                      // style={{ color: "white", backgroundColor: "#e62828" }}
                       onClick={() => {
                         addBalanceHandler(_id), window.location.reload();
                       }}
@@ -124,7 +102,6 @@ const AddBalance = () => {
             textAlign: "center",
             position: "relative",
             bottom: "32rem",
-            // left: "6rem",
             right: "-8rem",
           }}
         >
@@ -135,16 +112,10 @@ const AddBalance = () => {
           id="outlined-number"
           label="Amount in $"
           type="number"
-          // InputLabelProps={{
-          //   shrink: true,
-          // }}
-          // inputProps={{ min: 4, max: 10 }}
           onChange={amountHandler}
-          // InputProps={{ inputProps: { min: 0, max: 10 } }}
           style={{
             position: "relative",
             bottom: "38rem",
-            // left: "6rem",
             left: "47rem",
           }}
         />

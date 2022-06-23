@@ -23,12 +23,6 @@ const MassDialer = () => {
       {isBalance <= 0 ? (
         <InsufficientBalanceMass />
       ) : !isPhone ? (
-        // <div style={{ textAlign: "center" }}>
-        //   <img src={errorImg} alt="" width="150px" />
-        //   <h3 style={{ marginTop: "1rem" }}>
-        //     You must have active phone number
-        //   </h3>
-        // </div>
         <PhoneNotAvailableMass />
       ) : (
         <div className={MassDialerCSS.wrapper}>

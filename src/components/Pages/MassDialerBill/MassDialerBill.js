@@ -52,7 +52,6 @@ const MassDialerBill = (props) => {
           Total Cost:{" "}
           <span style={{ color: "red" }}>${actualCost && actualCost}</span>
         </p>
-        {/* <p style={{ color: "red" }}>{totalSeconds && totalSeconds}</p> */}
       </div>
     </>
   );

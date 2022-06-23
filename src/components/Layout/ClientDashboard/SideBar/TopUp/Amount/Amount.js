@@ -19,7 +19,6 @@ const TopUp = () => {
   }, []);
 
   const { selected, amount } = useContext(TopUpContext);
-  // const [selectedTopUpItem, setSelectedTopUpItem] = selected;
   const [topUpAmount, setTopUpAmount] = amount;
 
   const customAmountHandler = (e) => {
@@ -43,15 +42,6 @@ const TopUp = () => {
               variant="outlined"
               color="primary"
               value="1"
-              // onClick={() => {
-              //   setTopUpAmount(1);
-              //   setSelectedTopUpItem(1);
-              //   console.log(topUpAmount);
-              // }}
-              // onClick={() => {
-              //   <Redirect to="/payment"></Redirect>;
-              //   console.log("test");
-              // }}
             >
               $1
             </Button>
@@ -68,10 +58,6 @@ const TopUp = () => {
               variant="outlined"
               color="primary"
               value="5"
-              // onClick={() => {
-              //   setTopUpAmount(5);
-              //   setSelectedTopUpItem(1);
-              // }}
             >
               $5
             </Button>
@@ -88,10 +74,6 @@ const TopUp = () => {
               variant="outlined"
               color="primary"
               value="10"
-              // onClick={() => {
-              //   setTopUpAmount(10);
-              //   setSelectedTopUpItem(1);
-              // }}
             >
               $10
             </Button>
@@ -130,12 +112,10 @@ const TopUp = () => {
             color="primary"
             style={{ marginTop: "0.2rem", textDecoration: "none" }}
             disabled={topUpAmount <= 0 || topUpAmount > 1000}
-            // onClick={() => setSelectedTopUpItem(1)}
           >
             TopUp
           </Button>
         </Link>
-        {/* {selectedIndex == 1 && <Redirect to="/edit-profile"></Redirect>} */}
       </div>
       <div className={AmountCSS["deposit-note"]}>
         <p>

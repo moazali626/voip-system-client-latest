@@ -4,7 +4,6 @@ import CallCSS from "./Call.module.scss";
 import { TextField, Box, Button } from "@material-ui/core";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import UploadFile from "../../../../Modules/UploadFile/UploadFile";
 import AppBar from "../../../../UI/AppBar/AppBar";
 import validator from "validator";
 import InsufficientBalance from "../../../../Pages/InsufficientBalance/InsufficientBalance";
@@ -61,7 +60,6 @@ const Call = () => {
       .then((res) => {
         if (res.etag) {
           console.log(res);
-          // setUploading(false);
         }
       })
       .catch((err) => console.log(err));
@@ -121,7 +119,11 @@ const Call = () => {
               </div>
               <br></br>
               <Box width={350}>
-                <input type="file" {...register("file")} />
+                <input
+                  type="file"
+                  {...register("file")}
+                  accept=".mp3,audio/*"
+                />
                 <Button
                   required
                   type="submit"

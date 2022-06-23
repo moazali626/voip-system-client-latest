@@ -2,7 +2,6 @@ import React from "react";
 import FAQCSS from "./FAQ.module.scss";
 import { withStyles } from "@material-ui/core/styles";
 import MuiAccordion from "@material-ui/core/Accordion";
-// import MuiAccordion from "@mui/material/Accordion";
 import MuiAccordionSummary from "@material-ui/core/AccordionSummary";
 import MuiAccordionDetails from "@material-ui/core/AccordionDetails";
 import Typography from "@material-ui/core/Typography";

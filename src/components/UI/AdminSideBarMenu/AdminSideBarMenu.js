@@ -11,6 +11,7 @@ import DataUsageIcon from "@mui/icons-material/DataUsage";
 import { Link } from "react-router-dom";
 import AdminSideBarMenuCSS from "./AdminSideBarMenu.module.scss";
 import { Redirect } from "react-router";
+import MailIcon from "@mui/icons-material/Mail";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -69,6 +70,21 @@ const AdminSideBarMenu = ({ selectedIndexInfo, setSelectedIndexInfo }) => {
               </ListItemIcon>
               <ListItemText
                 primary="View Activty Usage"
+                style={{ color: "black" }}
+              />
+            </ListItem>
+
+            <ListItem
+              button
+              selected={selectedIndexInfo === 3}
+              onClick={(event) => handleListItemClick(event, 3)}
+              style={{ width: "18.9rem" }}
+            >
+              <ListItemIcon>
+                <MailIcon />
+              </ListItemIcon>
+              <ListItemText
+                primary="Get Inbox Messages"
                 style={{ color: "black" }}
               />
             </ListItem>

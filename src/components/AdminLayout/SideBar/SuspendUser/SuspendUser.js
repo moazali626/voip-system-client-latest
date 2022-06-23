@@ -6,7 +6,6 @@ import Button from "@material-ui/core/Button";
 let result;
 
 const userId = localStorage.getItem("id");
-
 const isBalanceAttribute = localStorage.getItem("name");
 
 const SuspendUser = () => {
@@ -37,11 +36,6 @@ const SuspendUser = () => {
   }, []);
 
   const suspendHandler = async (id) => {
-    // e.preventDefault();
-    console.log("suspend handler ran");
-    console.log(id);
-    // console.log(e.props);
-    //deleting record from database
     const result = await axios.post("http://localhost:4000/suspend-user", {
       headers: {
         userId: id,
@@ -55,16 +49,6 @@ const SuspendUser = () => {
         Authorization: `Bearer ${localJWT}`,
       },
     });
-
-    // localStorage.removeItem("name");
-    // localStorage.removeItem("balance");
-    // localStorage.removeItem("jwt");
-    // localStorage.removeItem("id");
-    // localStorage.removeItem("email");
-    // localStorage.removeItem("number");
-    // localStorage.removeItem("phone");
-
-    // window.location = "/";
   };
 
   return (

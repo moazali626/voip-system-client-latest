@@ -15,7 +15,6 @@ const SendSMS = () => {
   const [dateError, setDateError] = useState(false);
   const [ElapsedTime, setElapsedTime] = useState();
   const [isScheduled, setIsScheduled] = useState(false);
-  // const [selectDateError, setSelectDateError] = useState(false);
   const [recipeint, setRecpient] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState();
@@ -23,9 +22,6 @@ const SendSMS = () => {
 
   const senderNumber = localStorage.getItem("phone");
   const userId = localStorage.getItem("id");
-
-  // const recipeintRef = useRef();
-  // const messageRef = useRef();
 
   let elapsed;
 
@@ -36,7 +32,7 @@ const SendSMS = () => {
     let start = new Date();
     let end = new Date(e.target.value);
 
-    elapsed = end.getTime() - start.getTime(); // elapsed time in milliseconds
+    elapsed = end.getTime() - start.getTime();
 
     setElapsedTime(elapsed);
 
@@ -134,7 +130,6 @@ const SendSMS = () => {
               label="Recipient phone number"
               variant="standard"
               fullWidth
-              // type="number"
               onChange={recipientHandler}
               required
               value={recipeint}
@@ -170,7 +165,6 @@ const SendSMS = () => {
             variant="contained"
             color="primary"
             onClick={smsHandler}
-            // disabled={message.length <= 0}
             disabled={isRecipientValid != true || message.length <= 0}
           >
             Send Now
@@ -180,7 +174,6 @@ const SendSMS = () => {
           <Button
             type="submit"
             onClick={submitScheduleSMSHandler}
-            // style={buttonStyle}
             style={{
               position: "absolute",
               top: "104%",
@@ -195,18 +188,15 @@ const SendSMS = () => {
               message.length <= 0 ||
               dateError
             }
-            // disabled
           >
             Schedule Later
           </Button>
         </div>
-        {/* Date picker */}
         <Stack component="form" noValidate spacing={3}>
           <TextField
             id="datetime-local"
             label="Select Date & Time"
             type="datetime-local"
-            // defaultValue="2022-04-18T10:30"
             sx={{ width: 250 }}
             InputLabelProps={{
               shrink: true,
@@ -265,18 +255,6 @@ const SendSMS = () => {
           SMS scheduled for {selectedDate}
         </p>
       )}
-      {/* {selectDateError && (
-        <p
-          style={{
-            color: "red",
-            marginTop: "0.5rem",
-            fontSize: "1rem",
-            marginLeft: "0.7rem",
-          }}
-        >
-          Please select a date & time
-        </p>
-      )} */}
     </div>
   );
 };

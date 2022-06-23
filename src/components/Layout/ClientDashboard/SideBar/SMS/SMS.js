@@ -3,9 +3,6 @@ import SMSCSS from "./SMS.module.scss";
 import SendSMS from "../../../../Modules/SendSMS/SendSMS";
 import NoBalance from "../../../../Pages/NoBalance/NoBalance";
 import PhoneNotAvailable from "../../../../Pages/PhoneNotAvailable/PhoneNotAvailable";
-// import TextField from "@material-ui/core/TextField";
-// import Button from "@material-ui/core/Button";
-// import { useState } from "react";
 
 const isBalance = localStorage.getItem("balance");
 const isPhone = localStorage.getItem("phone");

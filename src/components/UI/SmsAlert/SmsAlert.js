@@ -14,11 +14,6 @@ const SmsAlert = () => {
       });
     };
     checkMessage();
-    // const interval = setInterval(() => {
-    //   checkMessage();
-    // }, 3000);
-    // console.log("USE-EFFECT RAN");
-    // return () => clearInterval(interval);
   }, []);
 
   return (

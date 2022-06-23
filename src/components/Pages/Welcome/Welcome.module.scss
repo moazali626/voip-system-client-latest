@@ -7,7 +7,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  //   line-height: 1;
 }
 
 .wrapper {
@@ -41,7 +40,6 @@
 
 @media (max-width: 410px) {
   img {
-    // max-width: 240px !important;
     width: 100%;
   }
   body {

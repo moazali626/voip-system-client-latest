@@ -8,11 +8,8 @@ import axios from "axios";
 
 const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
-  // const [name, setName] = useState("");
   const [isValidName, setIsValidName] = useState();
-  // const [email, setEmail] = useState("");
   const [isValidEmail, setIsValidEmail] = useState();
-  // const [message, setMessage] = useState("");
   const [isValidMessage, setIsValidMessage] = useState();
 
   const nameRef = useRef();
@@ -82,33 +79,31 @@ const Contact = () => {
               <TextField
                 className={ContactCSS.name}
                 label="Full Name"
-                variant="outlined"
+                variant="standard"
                 inputProps={{
                   maxLength: 80,
                 }}
                 onChange={nameHandler}
                 inputRef={nameRef}
                 required
-                // value={name}
               />
 
               <TextField
                 className={ContactCSS.email}
                 label="Email"
                 type="email"
-                variant="outlined"
+                variant="standard"
                 inputProps={{
                   maxLength: 254,
                 }}
                 onChange={emailHandler}
                 required
                 inputRef={emailRef}
-                // value={email}
               />
               <TextField
                 className={ContactCSS.message}
                 label="Message"
-                variant="outlined"
+                variant="standard"
                 multiline
                 rows={7}
                 inputRef={messageRef}
@@ -116,7 +111,6 @@ const Contact = () => {
                 inputProps={{
                   maxLength: 1000,
                 }}
-                // value={message}
                 required
               />
               <div></div>
